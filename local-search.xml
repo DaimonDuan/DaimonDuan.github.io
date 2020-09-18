@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Hexo使用手册</title>
+    <link href="/2020/09/18/HexoUserManual/"/>
+    <url>/2020/09/18/HexoUserManual/</url>
+    
+    <content type="html"><![CDATA[<h4 id="主题-amp-快速开始"><a href="#主题-amp-快速开始" class="headerlink" title="主题&amp;快速开始"></a>主题&amp;快速开始</h4><p>选取了<a href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>作为博客主题，轻量、快速、美观、功能齐全。</p><ul><li><a href="https://hexo.fluid-dev.com/docs/guide/">官方使用指南</a></li><li><a href="https://hexo.fluid-dev.com/docs/example/">主题操作示例</a></li><li>项目从零搭建教程参考：<a href="https://www.cnblogs.com/visugar/p/6821777.html">hexo从零开始到搭建完整</a></li><li>gitBase设置SSH连接到git仓库方法详见：<a href="https://blog.csdn.net/qq_22494029/article/details/79008386">Github添加SSH</a></li><li><a href="https://www.cnblogs.com/zouwangblog/p/11201561.html">如何上传代码到gitHub</a></li></ul><h4 id="文章提交"><a href="#文章提交" class="headerlink" title="文章提交"></a>文章提交</h4><ul><li>npm install hexo-deployer-git –save</li><li>hexo clean</li><li>hexo generate</li><li>hexo deploy</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>小技巧</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2020/09/18/hello-world/"/>
     <url>/2020/09/18/hello-world/</url>
