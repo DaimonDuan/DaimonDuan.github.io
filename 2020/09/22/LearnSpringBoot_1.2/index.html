@@ -17,7 +17,7 @@
   <meta name="description" content="每天进步一点点">
   <meta name="author" content="Daimon">
   <meta name="keywords" content="Daimon">
-  <title>Hexo使用手册 - Daimon的博客</title>
+  <title>Learn_1.2：使用IntellijIDEA建立第一个springBoot项目 - Daimon的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-18 16:36" pubdate>
-        2020年9月18日 下午
+      <time datetime="2020-09-22 14:33" pubdate>
+        2020年9月22日 下午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      120 字
+      779 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      11
        分钟
     </span>
   
@@ -225,41 +225,132 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Hexo使用手册</h1>
+            <h1 style="display: none">Learn_1.2：使用IntellijIDEA建立第一个springBoot项目</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月22日 晚上
+                  本文最后更新于：2020年9月22日 下午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h4 id="主题-amp-快速开始"><a href="#主题-amp-快速开始" class="headerlink" title="主题&amp;快速开始"></a>主题&amp;快速开始</h4><p>选取了<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>作为博客主题，轻量、快速、美观、功能齐全。</p>
+              <h3 id="一、使用Maven搭建SpringBoot项目"><a href="#一、使用Maven搭建SpringBoot项目" class="headerlink" title="一、使用Maven搭建SpringBoot项目"></a>一、使用Maven搭建SpringBoot项目</h3><p>由于部分网络原因，没有办法通过Spring Assistant生成SpringBoot项目，故通过新建Maven项目手动配置pom.xml的方式建立项目</p>
+<ol>
+<li>设定groupId等<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.daimon<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>HelloWorld<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>master<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></code></pre></li>
+<li>选取父项目spring-boot-starter-parent，此处使用SpringBoot2.1版本<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span></code></pre></li>
+<li>SpringBoot默认内嵌的servlet服务器是tomcat，我这里选取undertow替换掉tomcat<pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 启动类,去除tomcat --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- undertow --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-undertow<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre></li>
+<li>在resources目录新建application.yml配置文件<pre><code class="hljs yml"><span class="hljs-attr">server:</span>
+  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span></code></pre>
+<h3 id="二、Hello-World示例程序"><a href="#二、Hello-World示例程序" class="headerlink" title="二、Hello World示例程序"></a>二、Hello World示例程序</h3>若使用的Spring Assistant生成SpringBoot项目，可以将application.properties改成application.yml。yml文件和properties配置文件具有同样的功能。二者的区别在于：</li>
+</ol>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">官方使用指南</a></li>
-<li><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/example/">主题操作示例</a></li>
-<li>项目从零搭建教程参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/visugar/p/6821777.html">hexo从零开始到搭建完整</a></li>
-<li>gitBase设置SSH连接到git仓库方法详见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22494029/article/details/79008386">Github添加SSH</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zouwangblog/p/11201561.html">如何上传代码到gitHub</a></li>
+<li>yml文件的层级更加清晰直观，但是书写时需要注意格式缩进对齐。yml格式配置文件更有利于表达复杂数据结构的配置。比如：列表，对象。</li>
+<li>properties阅读上不如yml直观，好处在于书写时不用特别注意格式缩进对齐。</li>
 </ul>
-<h4 id="文章提交"><a href="#文章提交" class="headerlink" title="文章提交"></a>文章提交</h4><ul>
-<li>npm install hexo-deployer-git –save</li>
-<li>hexo clean</li>
-<li>hexo generate</li>
-<li>hexo deploy</li>
-</ul>
-<h4 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h4><blockquote>
-<p>拉取代码 git pull</p>
-</blockquote>
-<blockquote>
-<p>提交代码</p>
+<ol>
+<li>在com.daimon根路径下新建Application启动类<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.daimon;
+
+<span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;
+<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Daimon</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@Title</span>: HelloWorldApplication</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@Description</span>: TODO</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2020/9/2215:06</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorldApplication</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        SpringApplication.run(HelloWorldApplication.class, args);
+    &#125;
+&#125;</code></pre></li>
+<li>一个hello world测试Controller<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.daimon.controller;
+
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Daimon</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@Title</span>: HelloController</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@Description</span>: TODO</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2020/9/2215:20</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloController</span> </span>&#123;
+    <span class="hljs-meta">@RequestMapping(&quot;/hello&quot;)</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello world&quot;</span>;
+    &#125;
+&#125;</code></pre></li>
+<li>运行HelloWorldApplication，访问<a target="_blank" rel="noopener" href="http://localhost:8081/hello%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%A7%81%E5%88%B0%E9%A1%B5%E9%9D%A2%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9%E2%80%9Chello">http://localhost:8081/hello，可以见到页面输出内容“hello</a> world”<br>至此，运行成功~<h3 id="三、项目结构目录结构简介"><a href="#三、项目结构目录结构简介" class="headerlink" title="三、项目结构目录结构简介"></a>三、项目结构目录结构简介</h3>项目结构目录整体上符合maven规范要求：<table>
+<thead>
+<tr>
+<th>目录位置</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>src/main/java</td>
+<td>项目java文件存放位置，初始化包含主程序入口 XxxApplication，可以通过直接运行该类来 启动 Spring Boot应用</td>
+</tr>
+<tr>
+<td>src/main/resources</td>
+<td>存放静态资源，图片、CSS、JavaScript、web页面模板文件等</td>
+</tr>
+<tr>
+<td>src/test</td>
+<td>单元测试代码目录</td>
+</tr>
+<tr>
+<td>target文件夹</td>
+<td>项目代码构建打包结果文件存放位置，不需要人为维护</td>
+</tr>
+<tr>
+<td>pom.xml</td>
+<td>maven项目配置文件</td>
+</tr>
+<tr>
+<td>application.properties（application.yml）</td>
+<td>用于存放程序的各种依赖模块的配置信息，比如服务端口，数据库连接配置等</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
 <ul>
-<li>git pull</li>
-<li>git add .</li>
-<li>git commit -m ‘’</li>
-<li>git push</li>
+<li>src/main/resources/static主要用来存放css、图片、js等开发用静态文件</li>
+<li>src/main/resources/public用来存放可以直接用于访问的html文件</li>
+<li>src/main/resources/templates用来存放web开发模板文件</li>
 </ul>
-</blockquote>
 
             </div>
             <hr>
@@ -269,7 +360,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
                     
                   </div>
                 
@@ -277,7 +368,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
                     
                   </div>
                 
@@ -290,9 +381,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/22/LearnSpringBoot_1.1/">
+                      <a href="/2020/09/22/LearnSpringBoot_1.3/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Learn_1.1：SpringBoot产生背景及优势</span>
+                        <span class="hidden-mobile">Learn_1.3：需要先了解的核心概念</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -300,8 +391,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/09/18/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/09/22/LearnSpringBoot_1.1/">
+                        <span class="hidden-mobile">Learn_1.1：SpringBoot产生背景及优势</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -470,7 +561,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo使用手册&nbsp;",
+        "Learn_1.2：使用IntellijIDEA建立第一个springBoot项目&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

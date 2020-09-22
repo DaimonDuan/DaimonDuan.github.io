@@ -17,7 +17,7 @@
   <meta name="description" content="每天进步一点点">
   <meta name="author" content="Daimon">
   <meta name="keywords" content="Daimon">
-  <title>Hexo使用手册 - Daimon的博客</title>
+  <title>Learn_1.4：提高开发效率必备工具lombok - Daimon的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-18 16:36" pubdate>
-        2020年9月18日 下午
+      <time datetime="2020-09-22 16:48" pubdate>
+        2020年9月22日 下午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      120 字
+      567 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -225,41 +225,61 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Hexo使用手册</h1>
+            <h1 style="display: none">Learn_1.4：提高开发效率必备工具lombok</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月22日 晚上
+                  本文最后更新于：2020年9月22日 下午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h4 id="主题-amp-快速开始"><a href="#主题-amp-快速开始" class="headerlink" title="主题&amp;快速开始"></a>主题&amp;快速开始</h4><p>选取了<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>作为博客主题，轻量、快速、美观、功能齐全。</p>
+              <div class="note note-danger">
+            <p>本文转自<a target="_blank" rel="noopener" href="https://www.kancloud.cn/hanxt/springboot2/1315474"><strong>字母哥SpringBoot2.X教程</strong></a><br>很良心的教程文档，作者很有一套，有兴趣的可以去看看</p>
+          </div>
+
+<h3 id="一、使用lombok插件的好处"><a href="#一、使用lombok插件的好处" class="headerlink" title="一、使用lombok插件的好处"></a>一、使用lombok插件的好处</h3><p>我们在java开发过程中，经常会有一些常规性的，重复性的工作。比如：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">官方使用指南</a></li>
-<li><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/example/">主题操作示例</a></li>
-<li>项目从零搭建教程参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/visugar/p/6821777.html">hexo从零开始到搭建完整</a></li>
-<li>gitBase设置SSH连接到git仓库方法详见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22494029/article/details/79008386">Github添加SSH</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zouwangblog/p/11201561.html">如何上传代码到gitHub</a></li>
+<li>根据成员变量生成get和set方法</li>
+<li>根据成员变量生成类的构造函数</li>
+<li>重写toString()和hashCode方法</li>
+<li>引入日志框架logFactory，用来打印日志<br>以上都是一些重复动作，模板代码。每次都手动生成既浪费时间，又增加了大量的冗余代码。<br>我们可以使用lombok插件来解决这个问题。使我们的编码效率得到大幅度的提高！</li>
 </ul>
-<h4 id="文章提交"><a href="#文章提交" class="headerlink" title="文章提交"></a>文章提交</h4><ul>
-<li>npm install hexo-deployer-git –save</li>
-<li>hexo clean</li>
-<li>hexo generate</li>
-<li>hexo deploy</li>
-</ul>
-<h4 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h4><blockquote>
-<p>拉取代码 git pull</p>
-</blockquote>
-<blockquote>
-<p>提交代码</p>
+<h3 id="二、如何安装lombok插件"><a href="#二、如何安装lombok插件" class="headerlink" title="二、如何安装lombok插件"></a>二、如何安装lombok插件</h3><p>笔者以InelliJ IDEA为例，安装lombok插件。<br>打开 IDEA 的 File-&gt;Settings 面板，并选择 Plugins 选项，然后点击 “Browse repositories”。<br>在搜索框输入”lombok”，结果中找到lombok点击install，然后重启 IDEA。<br><img src="https://img.kancloud.cn/45/d4/45d483570ca6807eae7de5e6c3ab3cd6_762x511.png" srcset="/img/loading.gif" alt="install Lombok"></p>
+<p>我们还要在pom.xml里面加上如下依赖，插件生效。</p>
+<pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- lombok --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
+<div class="note note-success">
+            <p>在Spring Boot项目里面不需要加入版本号，spring Boot父项目会代为管理。如果是其他项目，请自行添加版本号！</p>
+          </div>
+
+<h3 id="三、使用lombok注解简化开发"><a href="#三、使用lombok注解简化开发" class="headerlink" title="三、使用lombok注解简化开发"></a>三、使用lombok注解简化开发</h3><h4 id="3-1-Data注解"><a href="#3-1-Data注解" class="headerlink" title="3.1.Data注解"></a>3.1.Data注解</h4><p>在java类上使用@Data注解，将为我们在编译期自动生成</p>
 <ul>
-<li>git pull</li>
-<li>git add .</li>
-<li>git commit -m ‘’</li>
-<li>git push</li>
+<li>成员变量的get和set方法</li>
+<li>equals方法</li>
+<li>canEqual方法</li>
+<li>hashCode方法</li>
+<li>toString方法</li>
 </ul>
-</blockquote>
+<p><img src="https://img.kancloud.cn/ab/0a/ab0a2c82558587327f06cca3f094d964_763x473.png" srcset="/img/loading.gif" alt="Data注解"></p>
+<p>上图左侧是使用lombok注解Data，右侧是java字节码class文件反编译结果</p>
+<h4 id="3-2-Slf4j注解"><a href="#3-2-Slf4j注解" class="headerlink" title="3.2.Slf4j注解"></a>3.2.Slf4j注解</h4><p>此注解将在编译期自动帮我们引入Logger日志常量，我们在代码中就直接使用log.info或log.debug打印日志即可。下图中红色代码就用Slf4j注解代替就可以了。</p>
+<p><img src="https://img.kancloud.cn/d2/4f/d24f55de1112606f804e9bf6280b3be0_750x441.png" srcset="/img/loading.gif" alt="Slf4j注解"></p>
+<h4 id="3-3-Builder注解"><a href="#3-3-Builder注解" class="headerlink" title="3.3.Builder注解"></a>3.3.Builder注解</h4><p>在Java类上使用Builder注解之后，我们可以使用如下代码为对象属性赋值</p>
+<pre><code class="hljs java">LombokPOJO lombokPOJO = LombokPOJO.builder()
+        .name(<span class="hljs-string">&quot;kobe&quot;</span>)
+        .age(<span class="hljs-number">39</span>)
+        .build();</code></pre>
+
+<p><img src="https://img.kancloud.cn/bd/a3/bda328a18d6acb36be7a3673f2f4122c_1384x862.png" srcset="/img/loading.gif" alt="Builder注解"></p>
+<h4 id="3-4-AllArgsConstructor注解"><a href="#3-4-AllArgsConstructor注解" class="headerlink" title="3.4.AllArgsConstructor注解"></a>3.4.AllArgsConstructor注解</h4><p>AllArgsConstructor注解将为我们在编译期自动生成：全参构造函数。</p>
+<p><img src="https://img.kancloud.cn/f9/4f/f94f6763804e87144618e7c9cde0fd5a_1202x466.png" srcset="/img/loading.gif" alt="AllArgsConstructor注解"></p>
+<p>有全参构造函数注解，自然就有无参构造函数注解：NoArgsConstructor注解。</p>
 
             </div>
             <hr>
@@ -269,7 +289,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
                     
                   </div>
                 
@@ -277,7 +297,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+                    
+                      <a class="hover-with-bg" href="/tags/lombok/">lombok</a>
                     
                   </div>
                 
@@ -290,9 +312,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/22/LearnSpringBoot_1.1/">
+                      <a href="/2020/09/22/LearnSpringBoot_1.5/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Learn_1.1：SpringBoot产生背景及优势</span>
+                        <span class="hidden-mobile">Learn_1.5：IDEA环境下的热加载与热部署</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -300,8 +322,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/09/18/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/09/22/LearnSpringBoot_1.3/">
+                        <span class="hidden-mobile">Learn_1.3：需要先了解的核心概念</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -470,7 +492,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo使用手册&nbsp;",
+        "Learn_1.4：提高开发效率必备工具lombok&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

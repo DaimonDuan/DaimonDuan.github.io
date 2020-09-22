@@ -17,7 +17,7 @@
   <meta name="description" content="每天进步一点点">
   <meta name="author" content="Daimon">
   <meta name="keywords" content="Daimon">
-  <title>Hexo使用手册 - Daimon的博客</title>
+  <title>Learn_1.3：需要先了解的核心概念 - Daimon的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-18 16:36" pubdate>
-        2020年9月18日 下午
+      <time datetime="2020-09-22 15:58" pubdate>
+        2020年9月22日 下午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      120 字
+      1.7k 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      20
        分钟
     </span>
   
@@ -225,41 +225,72 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Hexo使用手册</h1>
+            <h1 style="display: none">Learn_1.3：需要先了解的核心概念</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月22日 晚上
+                  本文最后更新于：2020年9月22日 下午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h4 id="主题-amp-快速开始"><a href="#主题-amp-快速开始" class="headerlink" title="主题&amp;快速开始"></a>主题&amp;快速开始</h4><p>选取了<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a>作为博客主题，轻量、快速、美观、功能齐全。</p>
+              <div class="note note-danger">
+            <p>本文转自<a target="_blank" rel="noopener" href="https://www.kancloud.cn/hanxt/springboot2/1724115"><strong>字母哥SpringBoot2.X教程</strong></a><br>很良心的教程文档，作者很有一套，有兴趣的可以去看看</p>
+          </div>
+<h3 id="一、Spring、SpringMVC、SpringBoot对比"><a href="#一、Spring、SpringMVC、SpringBoot对比" class="headerlink" title="一、Spring、SpringMVC、SpringBoot对比"></a>一、Spring、SpringMVC、SpringBoot对比</h3><p>SpringBoot项目目的并不是替换Spring、SpringMVC，而是使他们用起来更加简单。<br><strong>Spring</strong><br>Spring框架最核心的特性就是依赖注入DI（Dependency Injecttion）和控制反转IOC（Inversion Of Control）。如果能够合理的使用DI和IOC，可以开发出松耦合、扩展性好的的应用程序。</p>
+<p><strong>SpringMVC</strong><br>Spring MVC提供了一种友好的方式来开发Web应用程序。 通过使用诸如Dispatcher Servlet，ModelAndView和View Resolver，可以轻松开发Web应用程序。</p>
+<p><strong>SpringBoot</strong><br>Spring 和 Spring MVC最大的弊病在于存在大量的配置，并且这些配置在不同的项目中具有很高的相似性。从而导致重复配置，繁琐而且杂乱！<br>Spring Boot期望通过结合自动配置和starters来解决了这个问题。 另外，Spring Boot还提供了一些功能，可以更快地构建可用于生产环境的应用程序。</p>
+<h3 id="二、Spring-Boot-自动配置"><a href="#二、Spring-Boot-自动配置" class="headerlink" title="二、Spring Boot 自动配置"></a>二、Spring Boot 自动配置</h3><p>Spring和Spring MVC应用程序里面有大量的XML或Java Bean配置。Spring Boot为解决这个问题，提供一种新的解决方案，新的思维方式。<br><img src="https://img.kancloud.cn/e0/f3/e0f386d1c8916f4926946d42bf151337_956x578.png" srcset="/img/loading.gif" alt="自动配置"><br>SpringBoot思考的方式：是不是可以更加智能一点，当Spring中加入一些新的jar包，加入一些配置，可以自动的影响应用内的bean的加载。 比如：Spring MVC JAR位于类路径中时，自动配置Dispatcher Servlet。当然，当这些自动的默认配置不符合我们的要求的时候，我们可以修改。修改之前加载的这一些Bean，配置修改之后会自动加载另外一些Bean。</p>
+<h3 id="三、什么是Spring-Boot-Starter？"><a href="#三、什么是Spring-Boot-Starter？" class="headerlink" title="三、什么是Spring Boot Starter？"></a>三、什么是Spring Boot Starter？</h3><p>Spring Boot Starter是一组被依赖第三方类库的集合。<br>如果你要开发一个web应用程序，就通过包管理工具(如maven)引入spring-boot-starter-web就可以了，而不用分别引入下面这么多依赖类库，<br>spring-boot-starter-web一次性帮你引入下面的这些常用类库。</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">官方使用指南</a></li>
-<li><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/example/">主题操作示例</a></li>
-<li>项目从零搭建教程参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/visugar/p/6821777.html">hexo从零开始到搭建完整</a></li>
-<li>gitBase设置SSH连接到git仓库方法详见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22494029/article/details/79008386">Github添加SSH</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zouwangblog/p/11201561.html">如何上传代码到gitHub</a></li>
+<li>Spring — spring 核心, beans, context上下文, AOP面向切面</li>
+<li>Web MVC — Spring MVC</li>
+<li>Jackson — JSON数据的序列化与反序列化</li>
+<li>Validation — Hibernate参数校验及校验API</li>
+<li>嵌入式 Servlet Container — Tomcat</li>
+<li>日志框架Logging — logback, slf4j</li>
 </ul>
-<h4 id="文章提交"><a href="#文章提交" class="headerlink" title="文章提交"></a>文章提交</h4><ul>
-<li>npm install hexo-deployer-git –save</li>
-<li>hexo clean</li>
-<li>hexo generate</li>
-<li>hexo deploy</li>
-</ul>
-<h4 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h4><blockquote>
-<p>拉取代码 git pull</p>
-</blockquote>
-<blockquote>
-<p>提交代码</p>
+<p><img src="https://img.kancloud.cn/17/c6/17c6abe1c379cb541484b6844e6b4093_603x545.png" srcset="/img/loading.gif" alt="SpringBootStarter"></p>
+<h3 id="四、什么是Spring-Boot-Starter-Parent"><a href="#四、什么是Spring-Boot-Starter-Parent" class="headerlink" title="四、什么是Spring Boot Starter Parent"></a>四、什么是Spring Boot Starter Parent</h3><p>所有的Spring Boot项目默认使用spring-boot-starter-parent作为应用程序的父项目。</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span></code></pre>
+<p>继承父项目的好处在于： 统一java版本配置和其他的一些依赖类库的版本。<br>也就是说，你引入的第三方类库不要加版本号，父项目替你管理版本，而且是经过兼容性测试的。比你自己随便引入一个版本兼容性更好。</p>
+<div class="note note-success">
+            <p>当然父项目只能帮你管理一些常用类库的版本，如果你引入一些不常用的jar，还是要自己管理版本号及兼容性！</p>
+          </div>
+
+<h3 id="五、嵌入式web容器"><a href="#五、嵌入式web容器" class="headerlink" title="五、嵌入式web容器"></a>五、嵌入式web容器</h3><p>Spring boot打成jar包，默认包含嵌入式的web容器：tomcat。你可以简单的使用如下命令启动一个web服务：</p>
+<pre><code class="hljs sh">java -jar springboot-demo.jar</code></pre>
+<p>这更有利于微服务的部署及微服务的构建、启动、扩容。Spring Boot还支持Jetty和Undertow作为web容器。</p>
+<h3 id="六、Spring-Data"><a href="#六、Spring-Data" class="headerlink" title="六、Spring Data"></a>六、Spring Data</h3><p><img src="https://img.kancloud.cn/71/5b/715bd18bdaf7ca530da4857c8da14881_591x305.png" srcset="/img/loading.gif" alt="SpringData"></p>
+<p>Spring Data的目标是提供一种更友好的方式或者是API来存取数据。包括对于关系型数据库和NOSQL数据的支持。比如：</p>
 <ul>
-<li>git pull</li>
-<li>git add .</li>
-<li>git commit -m ‘’</li>
-<li>git push</li>
+<li>Spring Data JPA — 关系型数据库操作的API，友好且易于使用</li>
+<li>Spring Data MongoDB -MongoDB的操作API</li>
+<li>Spring Data REST — 从持久层Repositories自动生成服务层API，暴露 REST APIs 接口。超级好用！</li>
 </ul>
-</blockquote>
+<p>当然，Spring Data还有更多好用的特性和支持等待你去探索！</p>
+<h3 id="七、spring-boot2-x新特性"><a href="#七、spring-boot2-x新特性" class="headerlink" title="七、spring boot2.x新特性"></a>七、spring boot2.x新特性</h3><h4 id="7-1-基础环境升级"><a href="#7-1-基础环境升级" class="headerlink" title="7.1.基础环境升级"></a>7.1.基础环境升级</h4><ul>
+<li>最低 JDK 8，支持 JDK 9，不再支持 Java 6 和 7。Spring Boot 2.0 要求 Java 8 作为最低版本，许多现有的 API 已更新，以利用 Java 8 的特性。<br>例如，接口上的默认方法，函数回调以及新的 API，如 javax.time。</li>
+<li>如果你正在使用 Java 7 或更早版本，则在开发 Spring Boot 2.0 应用程序之前，需要升级你的 JDK。<h4 id="7-2-依赖组件升级"><a href="#7-2-依赖组件升级" class="headerlink" title="7.2.依赖组件升级"></a>7.2.依赖组件升级</h4></li>
+<li>Jetty 9.4，Jetty 是一个开源的 Servlet 容器，它为基于 Java 的 Web 内容，例如 JSP 和 Servlet 提供运行环境。Jetty 是使用 Java 语言编写的，它的 API 以一组 JAR 包的形式发布。</li>
+<li>Tomcat 8.5，Apache Tomcat 8.5.x 旨在取代 8.0.x，完全支持 Java 9。</li>
+<li>Flyway 5，Flyway 是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway 可以像 SVN 管理不同人的代码那样，管理不同人的 SQL 脚本，从而做到数据库同步。</li>
+<li>Hibernate 5.2，Hibernate 是一款非常流行的 ORM 框架。</li>
+<li>Gradle 3.4，Spring Boot 的 Gradle 插件在很大程度上已被重写，有了重大的改进。</li>
+<li>Thymeleaf 3.0，Thymeleaf 3 相对于 Thymeleaf 2 有非常大的性能提升。<h4 id="7-3-默认软件替换"><a href="#7-3-默认软件替换" class="headerlink" title="7.3. 默认软件替换"></a>7.3. 默认软件替换</h4></li>
+<li>默认数据库连接池已从 Tomcat 切换到 HikariCP，HikariCP 是一个高性能的 JDBC 连接池，Hikari 是日语“光”的意思。</li>
+<li>redis客户端默认使用 Lettuce，替换掉Jedis.Lettuce 是一个可伸缩的线程安全的 Redis 客户端，用于同步、异步和反应使用。多个线程可以共享同一个 RedisConnection，它利用优秀 Netty NIO 框架来高效地管理多个连接，支持先进的 Redis 功能，如 Sentinel、集群、流水线、自动重新连接和 Redis 数据模型。<h4 id="7-4-新技术的引入"><a href="#7-4-新技术的引入" class="headerlink" title="7.4.新技术的引入"></a>7.4.新技术的引入</h4></li>
+<li>响应式编程WebFlux,重要的变革</li>
+<li>支持 Quartz,Spring Boot 1.0 并没有提供对 Quartz 的支持，之前出现了各种集成方案，Spring Boot 2.0 给出了最简单的集成方式。</li>
+<li>对Kotlin 的支持</li>
+<li>JOOQ 的支持,JOOQ 是基于 Java 访问关系型数据库的工具包。JOOQ 既吸取了传统 ORM 操作数据的简单性和安全性，又保留了原生 SQL 的灵活性，它更像是介于 ORMS 和 JDBC 的中间层。<h4 id="7-5-彩蛋"><a href="#7-5-彩蛋" class="headerlink" title="7.5.彩蛋"></a>7.5.彩蛋</h4></li>
+</ul>
+<p><strong>在 Spring Boot 1.0 项目中 src/main/resources 路径下新建一个 banner.txt 文件：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;文件中写入一些字符，启动项目时就会发现默认的 Banner 被替换了。<br><strong>到了 Spring Boot 2.0 现在可以支持 Gif 文件的打印：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;Spring Boot 2.0 在项目启动的时候，会将 Gif 图片的每一个画面，按照顺序打印在日志中，所有的画面打印完毕后，才会启动 Spring Boot 项目。</p>
 
             </div>
             <hr>
@@ -269,7 +300,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/">小技巧</a>
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
                     
                   </div>
                 
@@ -277,7 +308,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
                     
                   </div>
                 
@@ -290,9 +321,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/22/LearnSpringBoot_1.1/">
+                      <a href="/2020/09/22/LearnSpringBoot_1.4/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Learn_1.1：SpringBoot产生背景及优势</span>
+                        <span class="hidden-mobile">Learn_1.4：提高开发效率必备工具lombok</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -300,8 +331,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/09/18/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/09/22/LearnSpringBoot_1.2/">
+                        <span class="hidden-mobile">Learn_1.2：使用IntellijIDEA建立第一个springBoot项目</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -470,7 +501,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo使用手册&nbsp;",
+        "Learn_1.3：需要先了解的核心概念&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
