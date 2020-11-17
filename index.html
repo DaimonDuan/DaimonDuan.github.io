@@ -176,6 +176,58 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        <a href="/2020/11/17/SqlIndexFailure/">Sql索引在哪些场景下会失效</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/17/SqlIndexFailure/">
+          
+          
+            
+          
+          
+            所谓失效。并不真的就是这个索引被删除了。而是在某些情况下，DBMS不会检索索引列表了。执行速度和没有这个索引时的速度一样。但是再执行另外的一条语句，同样的索引又正常起作用。所以索引的失效是针对某条sql语句，某个查询条件的，而不是针对索引本身的。
+          
+
+
+索引字段进行判空查询时。也就是对索引字段判断是否为NULL时。语句为is null 或is not 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-17 09:37" pubdate>
+              2020-11-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SQL/">SQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SQL%E7%B4%A2%E5%BC%95/">SQL索引</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         <a href="/2020/09/22/LearnSpringBoot_2.1/">Learn_2.1：RESTful接口与http协议状态表述</a>
       </h1>
 
@@ -632,57 +684,19 @@ Quick
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2019/10/30/JavaForBigDecimal/">Java中BigDecimal的使用</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/10/30/JavaForBigDecimal/">
-          
-          
-            
-          
-          用途
-
-由于浮点数采用二进制系统表示，而二进制无法精确的表示1/10，好比十进制无法精确表示1/3一样。因此，对于很多值浮点数都是采用其能够表示的离目标值近的数来表示，这有可能会在计算中带来不易察觉的误差。为了解决基本数据类型浮点数不能进行精确计算的问题，Java中专门提供了java.math.BigDecimal类，其提供浮点数的精确计算功能。
-金融类项目，对于金额的计算很敏感，推荐使用BigD
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-10-30 00:00" pubdate>
-              2019-10-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Math/">Math</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
 
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 

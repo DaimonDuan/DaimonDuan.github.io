@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Sql索引在哪些场景下会失效</title>
+    <link href="/2020/11/17/SqlIndexFailure/"/>
+    <url>/2020/11/17/SqlIndexFailure/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-danger">            <p>所谓失效。并不真的就是这个索引被删除了。而是在某些情况下，DBMS不会检索索引列表了。执行速度和没有这个索引时的速度一样。<br>但是再执行另外的一条语句，同样的索引又正常起作用。所以索引的失效是针对某条sql语句，某个查询条件的，而不是针对索引本身的。</p>          </div><ol><li><p>索引字段进行判空查询时。也就是对索引字段判断是否为NULL时。语句为is null 或is not null。</p><p> <strong><em>比如：</em></strong></p> <pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> CreateTime <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>;此时就不检索time字段上的索引表了。也就是索引在这条语句执行时失效了。</code></pre><p> <strong><em>接着再执行：</em></strong></p> <pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> CreateTime = <span class="hljs-string">&#x27;2015-04-11 00:00:00&#x27;</span>;此时就会检索索引表了。索引又起作用了。</code></pre></li><li><p>对索引字段进行like查询时。比如：select * from SoftWareDetailInfo where SoftUseLine like ‘%OQC%’。不过网上有的例子说like ‘xx%’索引起作用。我没试过。</p></li><li><p>判断索引列是否不等于某个值时。‘!=’操作符。比如：select * from SoftWareDetailInfo where SoftUseLine != 0</p></li><li><p>对索引列进行运算。这里运算包括+-*/等运算。也包括使用函数。</p><p> <strong><em>比如：</em></strong></p> <pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> SoftUseLine +<span class="hljs-number">0</span>= <span class="hljs-number">0</span>此时索引不起作用。<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> <span class="hljs-keyword">count</span>(SoftUseLine) = <span class="hljs-number">0</span>此时索引也不起作用。</code></pre><p> <strong><em>也就是说如果不是直接判断索引字段列，而是判断运算或其它函数处理后的索引列索引均不起作用。</em></strong></p></li><li><p>复合索引中的前导列没有被作为查询条件。比如：Index_SoftWareDetail索引包含（a，b，c） 三列，但是查询条件里面，没有a，b 列，只有c 列，那么 Index_SoftWareDetail索引也不起作用。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>SQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SQL索引</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Learn_2.1：RESTful接口与http协议状态表述</title>
     <link href="/2020/09/22/LearnSpringBoot_2.1/"/>
     <url>/2020/09/22/LearnSpringBoot_2.1/</url>

@@ -17,7 +17,7 @@
   <meta name="description" content="每天进步一点点">
   <meta name="author" content="Daimon">
   <meta name="keywords" content="Daimon">
-  <title>分类 - Daimon的博客</title>
+  <title>Daimon的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -150,6 +150,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -159,7 +163,7 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
@@ -167,174 +171,71 @@
                 
 
 
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
+  <div class="row mx-auto index-card">
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckhlbsfuq0008igmbbq13227s" role="tab" data-toggle="collapse" href="#collapse-ckhlbsfuq0008igmbbq13227s"
-        aria-expanded="false"
-      >
-        Java
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Java/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>7</span>
-      </a>
-      <div class="category-collapse">
-        
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/10/30/JavaForBigDecimal/">Java中BigDecimal的使用</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/10/30/JavaForBigDecimal/">
           
-  <div id="collapse-ckhlbsfuq0008igmbbq13227s" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckhlbsfuq0008igmbbq13227s">
-    
-    
-    
-      
-      
-        <a href="/2020/09/22/LearnSpringBoot_2.1/" class="list-group-item list-group-item-action">
-          <span class="category-post">Learn_2.1：RESTful接口与http协议状态表述</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/22/LearnSpringBoot_1.5/" class="list-group-item list-group-item-action">
-          <span class="category-post">Learn_1.5：IDEA环境下的热加载与热部署</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/22/LearnSpringBoot_1.4/" class="list-group-item list-group-item-action">
-          <span class="category-post">Learn_1.4：提高开发效率必备工具lombok</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/22/LearnSpringBoot_1.3/" class="list-group-item list-group-item-action">
-          <span class="category-post">Learn_1.3：需要先了解的核心概念</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/22/LearnSpringBoot_1.2/" class="list-group-item list-group-item-action">
-          <span class="category-post">Learn_1.2：使用IntellijIDEA建立第一个springBoot项目</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/22/LearnSpringBoot_1.1/" class="list-group-item list-group-item-action">
-          <span class="category-post">Learn_1.1：SpringBoot产生背景及优势</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019/10/30/JavaForBigDecimal/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java中BigDecimal的使用</span>
-        </a>
-      
-    
-  </div>
+          
+            
+          
+          用途
 
+由于浮点数采用二进制系统表示，而二进制无法精确的表示1/10，好比十进制无法精确表示1/3一样。因此，对于很多值浮点数都是采用其能够表示的离目标值近的数来表示，这有可能会在计算中带来不易察觉的误差。为了解决基本数据类型浮点数不能进行精确计算的问题，Java中专门提供了java.math.BigDecimal类，其提供浮点数的精确计算功能。
+金融类项目，对于金额的计算很敏感，推荐使用BigD
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-30 00:00" pubdate>
+              2019-10-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Math/">Math</a>
+            
+          </div>
         
       </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckhlbsful0003igmbaluwdez3" role="tab" data-toggle="collapse" href="#collapse-ckhlbsful0003igmbaluwdez3"
-        aria-expanded="false"
-      >
-        小技巧
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckhlbsful0003igmbaluwdez3" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckhlbsful0003igmbaluwdez3">
-    
-    
-    
-      
-      
-        <a href="/2020/09/18/HexoUserManual/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo使用手册</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/17/JavaServiceForJar/" class="list-group-item list-group-item-action">
-          <span class="category-post">通过JavaService将Jar包注册为Windows服务</span>
-        </a>
-      
-    
+    </article>
   </div>
 
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckhlbsfv4000vigmb2gvldkbg" role="tab" data-toggle="collapse" href="#collapse-ckhlbsfv4000vigmb2gvldkbg"
-        aria-expanded="false"
-      >
-        SQL
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/SQL/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckhlbsfv4000vigmb2gvldkbg" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckhlbsfv4000vigmb2gvldkbg">
-    
-    
-    
-      
-      
-        <a href="/2020/11/17/SqlIndexFailure/" class="list-group-item list-group-item-action">
-          <span class="category-post">Sql索引在哪些场景下会失效</span>
-        </a>
-      
-    
-  </div>
 
-        
-      </div>
-    </div>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
   
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
 
               </div>
             </div>
@@ -455,7 +356,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "知人者智，自知者明。胜人者有力，自胜者强。&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

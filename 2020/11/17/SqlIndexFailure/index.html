@@ -17,7 +17,7 @@
   <meta name="description" content="每天进步一点点">
   <meta name="author" content="Daimon">
   <meta name="keywords" content="Daimon">
-  <title>Learn_2.1：RESTful接口与http协议状态表述 - Daimon的博客</title>
+  <title>Sql索引在哪些场景下会失效 - Daimon的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-22 18:05" pubdate>
-        2020年9月22日 晚上
+      <time datetime="2020-11-17 09:37" pubdate>
+        2020年11月17日 上午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      439 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      5
        分钟
     </span>
   
@@ -225,132 +225,44 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Learn_2.1：RESTful接口与http协议状态表述</h1>
+            <h1 style="display: none">Sql索引在哪些场景下会失效</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月22日 晚上
+                  本文最后更新于：2020年11月17日 上午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
               <div class="note note-danger">
-            <p>本文转自<a target="_blank" rel="noopener" href="https://www.kancloud.cn/hanxt/springboot2/1177585"><strong>字母哥SpringBoot2.X教程</strong></a><br>很良心的教程文档，作者很有一套，有兴趣的可以去看看</p>
+            <p>所谓失效。并不真的就是这个索引被删除了。而是在某些情况下，DBMS不会检索索引列表了。执行速度和没有这个索引时的速度一样。<br>但是再执行另外的一条语句，同样的索引又正常起作用。所以索引的失效是针对某条sql语句，某个查询条件的，而不是针对索引本身的。</p>
           </div>
 
-<h3 id="一、RESTful风格API的好处"><a href="#一、RESTful风格API的好处" class="headerlink" title="一、RESTful风格API的好处"></a>一、RESTful风格API的好处</h3><p>API（Application Programming Interface），顾名思义：是一组编程接口规范，客户端与服务端通过请求响应进行数据通信。<br>REST（Representational State Transfer）表述性状态传递，决定了接口的形式与规则。<br><strong>RESTful是基于http方法的API设计风格，而不是一种新的技术.</strong></p>
 <ol>
-<li>看Url就知道要什么资源</li>
-<li>看http method就知道针对资源干什么</li>
-<li>看http status code就知道结果如何</li>
+<li><p>索引字段进行判空查询时。也就是对索引字段判断是否为NULL时。语句为is null 或is not null。</p>
+<p> <strong><em>比如：</em></strong></p>
+ <pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> CreateTime <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>;
+此时就不检索time字段上的索引表了。也就是索引在这条语句执行时失效了。</code></pre>
+
+<p> <strong><em>接着再执行：</em></strong></p>
+ <pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> CreateTime = <span class="hljs-string">&#x27;2015-04-11 00:00:00&#x27;</span>;
+此时就会检索索引表了。索引又起作用了。</code></pre>
+</li>
+<li><p>对索引字段进行like查询时。比如：select * from SoftWareDetailInfo where SoftUseLine like ‘%OQC%’。不过网上有的例子说like ‘xx%’索引起作用。我没试过。</p>
+</li>
+<li><p>判断索引列是否不等于某个值时。‘!=’操作符。比如：select * from SoftWareDetailInfo where SoftUseLine != 0</p>
+</li>
+<li><p>对索引列进行运算。这里运算包括+-*/等运算。也包括使用函数。</p>
+<p> <strong><em>比如：</em></strong></p>
+ <pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> SoftUseLine +<span class="hljs-number">0</span>= <span class="hljs-number">0</span>
+此时索引不起作用。
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> SoftWareDetailInfo <span class="hljs-keyword">where</span> <span class="hljs-keyword">count</span>(SoftUseLine) = <span class="hljs-number">0</span>
+此时索引也不起作用。</code></pre>
+<p> <strong><em>也就是说如果不是直接判断索引字段列，而是判断运算或其它函数处理后的索引列索引均不起作用。</em></strong></p>
+</li>
+<li><p>复合索引中的前导列没有被作为查询条件。比如：Index_SoftWareDetail索引包含（a，b，c） 三列，但是查询条件里面，没有a，b 列，只有c 列，那么 Index_SoftWareDetail索引也不起作用。</p>
+</li>
 </ol>
-<p>对接口开发提供了一种可以广泛适用的规范，为前端后端交互减少了接口交流的口舌成本，是约定大于配置的体现。通过下面的设计，大家来理解一下这三句话。</p>
-<div class="note note-success">
-            <p>当然也不是所有的接口，都能用REST的形式来表述。<br>在实际工作中灵活运用，我们用RESTful风格的目的是为大家提供统一标准，避免不必要的沟通成本的浪费，形成一种通用的风格。<br>就好比大家都知道：伸出大拇指表示“你很棒“的意思，绝大部分人都明白，因为你了解了这种风格习惯。但是不排除有些地区伸出大拇指表示其他意思，就不适合使用！</p>
-          </div>
-
-<h3 id="二、RESTful-API的设计风格"><a href="#二、RESTful-API的设计风格" class="headerlink" title="二、RESTful API的设计风格"></a>二、RESTful API的设计风格</h3><h4 id="2-1、RESTful是面向资源的（名词）"><a href="#2-1、RESTful是面向资源的（名词）" class="headerlink" title="2.1、RESTful是面向资源的（名词）"></a>2.1、RESTful是面向资源的（名词）</h4><p>REST 通过 URI 暴露资源时，会强调不要在 URI 中出现动词。比如：</p>
-<table>
-<thead>
-<tr>
-<th>不符合REST的接口URI</th>
-<th>符合REST接口URI</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>GET /api/getDogs/{id}</td>
-<td>GET /api/dogs/{id}</td>
-<td>获取一个小狗</td>
-</tr>
-<tr>
-<td>GET /api/getDogs</td>
-<td>GET /api/dogs</td>
-<td>获取所有小狗</td>
-</tr>
-<tr>
-<td>GET /api/addDogs</td>
-<td>POST /api/dogs</td>
-<td>添加一个小狗</td>
-</tr>
-<tr>
-<td>GET /api/editDogs/{id}</td>
-<td>PUT /api/dogs/{id}</td>
-<td>修改一个小狗</td>
-</tr>
-<tr>
-<td>GET /api/deleteDogs/{id}</td>
-<td>DELETE /api/dogs/{id}</td>
-<td>删除一个小狗</td>
-</tr>
-</tbody></table>
-<h4 id="2-2、用HTTP方法体现对资源的操作（动词）"><a href="#2-2、用HTTP方法体现对资源的操作（动词）" class="headerlink" title="2.2、用HTTP方法体现对资源的操作（动词）"></a>2.2、用HTTP方法体现对资源的操作（动词）</h4><ul>
-<li>GET    ： 获取、读取资源</li>
-<li>POST   ： 添加资源</li>
-<li>PUT    ： 修改资源</li>
-<li>DELETE ： 删除资源</li>
-</ul>
-<p><img src="https://img.kancloud.cn/77/8c/778c1a6b6927d9d4d1b0b038fecf0e38_955x422.png" srcset="/img/loading.gif" alt="Http操作"></p>
-<p>实际上，这四个动词实际上就对应着增删改查四个操作，这就利用了HTTP动词来表示对资源的操作。</p>
-<h4 id="2-3-HTTP状态码"><a href="#2-3-HTTP状态码" class="headerlink" title="2.3. HTTP状态码"></a>2.3. HTTP状态码</h4><p>通过HTTP状态码体现动作的结果,不要自定义</p>
-<pre><code class="hljs basic"><span class="hljs-symbol">200 </span>OK 
-<span class="hljs-symbol">400 </span>Bad Request 
-<span class="hljs-symbol">500 </span>Internal Server <span class="hljs-keyword">Error</span></code></pre>
-
-<p>在 APP 与 API 的交互当中，其结果逃不出这三种状态：</p>
-<ul>
-<li>所有事情都按预期正确执行完毕 - 成功</li>
-<li>APP 发生了一些错误 – 客户端错误（如：校验用户输入身份证，结果输入的是军官证，就是客户端输入错误）</li>
-<li>API 发生了一些错误 – 服务器端错误（各种编码bug或服务内部自己导致的异常）</li>
-</ul>
-<p>这三种状态与上面的状态码是一一对应的。如果你觉得这三种状态，分类处理结果太宽泛，http-status code还有很多。<br>建议还是要遵循KISS(Keep It Stupid and Simple)原则，上面的三种状态码完全可以覆盖99%以上的场景。<br>这三个状态码大家都记得住，而且非常常用，多了就不一定了。</p>
-<h4 id="2-4-Get方法和查询参数不应该改变数据"><a href="#2-4-Get方法和查询参数不应该改变数据" class="headerlink" title="2.4. Get方法和查询参数不应该改变数据"></a>2.4. Get方法和查询参数不应该改变数据</h4><p>改变数据的事交给POST、PUT、DELETE</p>
-<h4 id="2-5-使用复数名词"><a href="#2-5-使用复数名词" class="headerlink" title="2.5. 使用复数名词"></a>2.5. 使用复数名词</h4><p>/dogs 而不是 /dog</p>
-<h4 id="2-6-复杂资源关系的表达"><a href="#2-6-复杂资源关系的表达" class="headerlink" title="2.6. 复杂资源关系的表达"></a>2.6. 复杂资源关系的表达</h4><p>GET /cars/711/drivers/ 返回 使用过编号711汽车的所有司机<br>GET /cars/711/drivers/4 返回 使用过编号711汽车的4号司机</p>
-<h4 id="2-7-高级用法-HATEOAS"><a href="#2-7-高级用法-HATEOAS" class="headerlink" title="2.7. 高级用法:HATEOAS"></a>2.7. 高级用法:HATEOAS</h4><p><strong>HATEOAS</strong>:Hypermedia as the Engine of Application State 超媒体作为应用状态的引擎。<br>RESTful API最好做到HATEOAS，<strong>即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。</strong><br>比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。</p>
-<pre><code class="hljs json">&#123;<span class="hljs-attr">&quot;link&quot;</span>: &#123;
-  <span class="hljs-attr">&quot;rel&quot;</span>:   <span class="hljs-string">&quot;collection https://www.example.com/zoos&quot;</span>,
-  <span class="hljs-attr">&quot;href&quot;</span>:  <span class="hljs-string">&quot;https://api.example.com/zoos&quot;</span>,
-  <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;List of zoos&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>:  <span class="hljs-string">&quot;application/vnd.yourformat+json&quot;</span>
-&#125;&#125;</code></pre>
-<p>上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API或者可以调用什么API了。</p>
-<h4 id="2-8-资源过滤、排序、选择和分页的表述"><a href="#2-8-资源过滤、排序、选择和分页的表述" class="headerlink" title="2.8.资源过滤、排序、选择和分页的表述"></a>2.8.资源过滤、排序、选择和分页的表述</h4><table>
-<thead>
-<tr>
-<th>资源功能表述</th>
-<th>例子</th>
-<th>详细说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>资源数据过滤</td>
-<td>GET /cars?color=red</td>
-<td>获取红色的汽车</td>
-</tr>
-<tr>
-<td>资源数据过滤</td>
-<td>GET /cars?seats&lt;=4</td>
-<td>获取小于四座位的汽车</td>
-</tr>
-<tr>
-<td>资源数据排序</td>
-<td>GET /cars?sort=-manufactorer,+model</td>
-<td>获取汽车资源数据，先按照生产者降序排序、再按照车架模型升序排序</td>
-</tr>
-<tr>
-<td>资源数据字段选择</td>
-<td>GET /cars?fields=manufactorer,model,id,color</td>
-<td>只选取其中一些字段，给API消费者一个选择字段的能力，这会降低网络流量</td>
-</tr>
-<tr>
-<td>资源数据分页</td>
-<td>GET /cars?offset=10&amp;limit=5</td>
-<td>使用limit和offset，实现分页、缺省</td>
-</tr>
-</tbody></table>
-<h4 id="2-9-版本化你的API"><a href="#2-9-版本化你的API" class="headerlink" title="2.9. 版本化你的API"></a>2.9. 版本化你的API</h4><p>强制性增加API版本声明，不要发布无版本的API。如：/api/v1/blog<br><strong>面向扩展开放，面向修改关闭</strong>：也就是说一个版本的接口开发完成测试上线之后，我们一般不会对接口进行修改，如果有新的需求就开发新的接口进行功能扩展。<br>这样做的目的是：当你的新接口上线后，不会影响使用老接口的用户。如果新接口目的是替换老接口，也不要在v1版本原接口上修改，而是开发v2版本接口，并声明v1接口废弃！</p>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p>关于HTTP RESTful风格API设计的更多例子，请大家参考：<a target="_blank" rel="noopener" href="http://httpbin.org/">http://httpbin.org/</a></p>
 
             </div>
             <hr>
@@ -360,7 +272,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
                     
                   </div>
                 
@@ -368,7 +280,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+                      <a class="hover-with-bg" href="/tags/SQL%E7%B4%A2%E5%BC%95/">SQL索引</a>
                     
                   </div>
                 
@@ -381,18 +293,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/17/SqlIndexFailure/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Sql索引在哪些场景下会失效</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/09/22/LearnSpringBoot_1.5/">
-                        <span class="hidden-mobile">Learn_1.5：IDEA环境下的热加载与热部署</span>
+                      <a href="/2020/09/22/LearnSpringBoot_2.1/">
+                        <span class="hidden-mobile">Learn_2.1：RESTful接口与http协议状态表述</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -561,7 +467,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Learn_2.1：RESTful接口与http协议状态表述&nbsp;",
+        "Sql索引在哪些场景下会失效&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
