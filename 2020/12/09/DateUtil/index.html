@@ -17,7 +17,7 @@
   <meta name="description" content="每天进步一点点">
   <meta name="author" content="Daimon">
   <meta name="keywords" content="Daimon">
-  <title>LearnBoot_1.5：IDEA环境下的热加载与热部署 - Daimon的博客</title>
+  <title>Java中的日期类型 - Daimon的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-22 17:29" pubdate>
-        2020年9月22日 下午
+      <time datetime="2020-12-09 10:15" pubdate>
+        2020年12月9日 上午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      234 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      3
        分钟
     </span>
   
@@ -225,65 +225,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">LearnBoot_1.5：IDEA环境下的热加载与热部署</h1>
+            <h1 style="display: none">Java中的日期类型</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月22日 下午
+                  本文最后更新于：2020年12月9日 上午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>在实际的开发过程中，我们经常修改代码之后，手动的重启项目，手动刷新浏览器查看修改效果。<br>那么有没有一种方式能够快速的、自动的帮我们将修改代码自动更新，避免手动重启，从而提高开发效率呢？<br>肯定是有的，但是对于这个功能很多人对功能的叫法有争议，笔者查询了维基百科、官方文档，没有得到合理的答案，也没有权威的定义。<br>笔者知道的就有：热启动、热加载、热更新、热部署、热切换。<br>这几个词从语义上是有区别的，但是叫什么并不重要，实现了最重要，毕竟绝大部分程序员为了使用这个功能方便开发，也不是专业的搞学术研究的。</p>
-<div class="note note-success">
-            <p>如果哪位朋友获得了权威渠道的说法，可以将文档连接反馈给我。我再理解一下，争取做到学术研究级别的一丝不苟！在此之前笔者按照自己的想法和英文翻译的角度去使用这些名词。</p>
-          </div>
+              <h3 id="一、调用Date的compareTo-方法来比较大小"><a href="#一、调用Date的compareTo-方法来比较大小" class="headerlink" title="一、调用Date的compareTo()方法来比较大小"></a>一、调用Date的compareTo()方法来比较大小</h3><pre><code class="hljs java">SimpleDateFormat sdf = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>);
+Date startDate = sdf.parse(<span class="hljs-string">&quot;2020-09-02&quot;</span>);
+Date endDate = sdf.parse(<span class="hljs-string">&quot;2021-09-02&quot;</span>);
 
-<h3 id="一、使用Jrebel插件"><a href="#一、使用Jrebel插件" class="headerlink" title="一、使用Jrebel插件"></a>一、使用Jrebel插件</h3><p>这是最简单的一种方式，但是有一定的个局限性，Jrebel插件是收费的。虽然有破解方案，但是不建议！有需要的同学自行研究，这里就不多做介绍了。</p>
-<div class="note note-warning">
-            <p>Jrebel插件在有些Spring Boot版本不够兼容，会报错，越新的版本越容易报错。所以笔者目前还是选择性放弃使用该方法！</p>
-          </div>
+<span class="hljs-comment">//当止期早于起期时，止期=起期</span>
+<span class="hljs-keyword">int</span> i = endDate.compareTo(startDate);
+<span class="hljs-keyword">if</span>(i == -<span class="hljs-number">1</span>) &#123;
+	System.out.println(<span class="hljs-string">&quot;止期早于起期:&quot;</span>+i);
+	endDate = startDate;
+&#125;
 
-<p>第一步：安装插件，按照箭头所示选择安装。安装完成之后，要重启IDEA才能生效。<br><img src="https://img.kancloud.cn/b5/86/b5862bc7e81a1d84ea614bf8763feb72_1533x885.png" srcset="/img/loading.gif" alt="安装插件"></p>
-<p>第二步：激活。在安装完成之后，右上角会多出这样几个按钮。<br>点击之后会提示你进行插件激活，可以注册码激活，也可以在线激活。也可以填写个人姓名、邮箱、电话之后获取10天的试用！<br><img src="https://img.kancloud.cn/eb/46/eb46dbc880b3b57d634b8a82dfdc65dc_623x225.png" srcset="/img/loading.gif" alt="激活"></p>
-<p>第三步：更新操作触发配置，这个配置不仅结合Jrebel使用有效，对于其他的方式实现开发过程中需要自动更新的情况下，也要勾选上。<br><img src="https://img.kancloud.cn/b6/39/b63998ed48839cf7e05346dcc4e15385_497x277.png" srcset="/img/loading.gif" alt="更新操作触发配置"></p>
-<p>在Spring Boot项目启动配置中，选择下图中的红色框中的内容：uodate classes and resources on ‘update’ action<br><img src="https://img.kancloud.cn/c1/fd/c1fd71a6e07c941652d4fc3e9b7304b6_1429x863.png" srcset="/img/loading.gif" alt="启动配置"><br>配置完成后，通过右上角的JR按钮启动SpringBoot项目。就可以实现改动代码和资源的自动更新。</p>
-<h3 id="二、devtools实现热加载"><a href="#二、devtools实现热加载" class="headerlink" title="二、devtools实现热加载"></a>二、devtools实现热加载</h3><p>这是一种对于SpringBoot而言比较常见的一种实现方式。</p>
-<h4 id="2-1-引入devtools的maven依赖"><a href="#2-1-引入devtools的maven依赖" class="headerlink" title="2.1.引入devtools的maven依赖"></a>2.1.引入devtools的maven依赖</h4><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- devtools --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-devtools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
-<p>spring-boot-devtools从名称就可以看出来，是开发者工具包，其主要的功能就是实现热加载。<br><img src="https://img.kancloud.cn/38/a0/38a0bd94ef6dea1c12046e0f51a16c31_1069x412.png" srcset="/img/loading.gif" alt="devtools"><br>其实现原理就是两个ClassLoader<br>一个负责加载那些不会经常改变的文件，比如：第三方jar包，一旦引入项目之后这部分代码在调试过程中就处于不变的状态；<br>一个负责加载可能经常改变的类，比如我们自己在项目中写的代码，被称为restart ClassLoader。<br>当有代码发生改变的时候，重建一个restart ClassLoader，原有的restart ClassLoader被丢掉。由于每次重新加载的内容较少，所以速度比手动重启更快一些。</p>
-<h4 id="2-2-设置IDEA"><a href="#2-2-设置IDEA" class="headerlink" title="2.2.设置IDEA"></a>2.2.设置IDEA</h4><p>首先，运行时编译配置：组合键：“Shift+Ctrl+Alt+/” ，选择 “Registry” ，选中打勾 “compiler.automake.allow.when.app.running” 。<br><img src="https://box.kancloud.cn/974e40a4165195960c5a4a888cbb78e3_1069x322.png" srcset="/img/loading.gif" alt="运行时编译"></p>
-<p>其次，自动化编译配置： “File” -&gt; “Settings” -&gt; “Build,Execution,Deplyment” -&gt; “Compiler”，选中打勾 “Make project automatically” 。<br>这是一种重新自动化的编译整体项目的方法。但是笔者一般不这么做，因为IDEA的文件是自动保存的，你想修改一个字符串，<br>有可能你只修改完成第一个字符它就重新编译了，重新加载启动。<br><strong>所以，笔者一般代码修改完成之后，使用Ctrl + F9快捷键对修改类重新编译，而不是做项目的自动化编译。</strong><br><img src="https://img.kancloud.cn/54/b4/54b4462c8b4a3314e4eeb557862e7837_716x424.png" srcset="/img/loading.gif" alt="自动化编译配置"></p>
-<p>最后，在一些相对旧的IDEA版本上运行时配置，按如下图形勾选。（新版本IDEA已经不需要了）<br><img src="https://img.kancloud.cn/aa/50/aa50626eecc8c3aebe857f21ad53df2d_688x482.png" srcset="/img/loading.gif" alt="旧版本运行时配置"></p>
-<h4 id="2-3-修改一下application-properties配置"><a href="#2-3-修改一下application-properties配置" class="headerlink" title="2.3.修改一下application.properties配置"></a>2.3.修改一下application.properties配置</h4><p>在比较新的Spring Boot devtools版本中我们已经不需要做如下的配置了，但是如果你以上的步骤都完成了，仍然无法实现代码更改之后的热加载，请参考下面的方法。<br>在有些版本我们需要配置热加载生效的开关，使其值等于true。</p>
-<p><strong>下文是properties格式配置，喜欢yml格式的同学可以自行调整一下。</strong><br>默认情况下，支持热加载的目录如下，如果需要其它目录下文件支持热加载需要手动配置：</p>
-<ul>
-<li>/META-INF/maven</li>
-<li>/META-INF/resources</li>
-<li>/resources</li>
-<li>/static</li>
-<li>/public</li>
-<li>/templates</li>
-</ul>
-<pre><code class="hljs yml"><span class="hljs-comment">#热加载生效</span>
-<span class="hljs-string">spring.devtools.restart.enabled=true</span>
-<span class="hljs-comment">#额外新增的热加载目录</span>
-<span class="hljs-string">spring.devtools.restart.additional-paths=</span> <span class="hljs-string">src/main/java</span>
-<span class="hljs-comment">#热加载排除目录</span>
-<span class="hljs-comment">#spring.devtools.restart.exclude= </span></code></pre>
+System.out.println(<span class="hljs-string">&quot;最终结果：startDate:&quot;</span>+startDate+<span class="hljs-string">&quot;||endDate&quot;</span>+endDate);</code></pre>
 
-<h4 id="2-4-LiveReload插件"><a href="#2-4-LiveReload插件" class="headerlink" title="2.4.LiveReload插件"></a>2.4.LiveReload插件</h4><p>最后建议你去chrome 浏览器插件商店安装一个插件叫做LiveReload。<br><img src="https://img.kancloud.cn/bd/91/bd91e4e886709035cba31d16978657c3_2405x798.gif" srcset="/img/loading.gif" alt="LiveReload插件"></p>
-<p>Spring devtools默认会启动一个 Live Reload Server实例。<br>监听文件的变化，并实时的与浏览器插件通信，更新浏览器展示界面。<br>这样，你就不用每次更改内容之后都点击浏览器刷新按钮了。</p>
-<h4 id="2-5-最后测试一下"><a href="#2-5-最后测试一下" class="headerlink" title="2.5.最后测试一下"></a>2.5.最后测试一下</h4><p>改一下代码，看看会不会生效。通常不生效的原因有两种：</p>
-<ul>
-<li>JDK编译版本和运行版本不统一，自行学习一下IDEA环境下JDK配置</li>
-<li>浏览器缓存或者其他的缓存软件导致的问题</li>
-</ul>
+<h3 id="二、通过Date自带的before-或者after-方法比较"><a href="#二、通过Date自带的before-或者after-方法比较" class="headerlink" title="二、通过Date自带的before()或者after()方法比较"></a>二、通过Date自带的before()或者after()方法比较</h3><pre><code class="hljs java">SimpleDateFormat sdf = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>);
+Date startDate = sdf.parse(<span class="hljs-string">&quot;2020-09-02&quot;</span>);
+Date endDate = sdf.parse(<span class="hljs-string">&quot;2021-09-02&quot;</span>);
 
+<span class="hljs-comment">//当止期早于起期时，止期=起期</span>
+<span class="hljs-keyword">boolean</span> b = endDate.before(startDate);
+<span class="hljs-keyword">if</span>(b) &#123;
+	System.out.println(<span class="hljs-string">&quot;止期早于起期&quot;</span>);
+	endDate = startDate;
+&#125;
+System.out.println(b);
+
+System.out.println(<span class="hljs-string">&quot;最终结果：startDate:&quot;</span>+startDate+<span class="hljs-string">&quot;||endDate&quot;</span>+endDate);</code></pre>
+
+<h3 id="三、通过SimpleDateFormat将Date转换为String"><a href="#三、通过SimpleDateFormat将Date转换为String" class="headerlink" title="三、通过SimpleDateFormat将Date转换为String"></a>三、通过SimpleDateFormat将Date转换为String</h3><pre><code class="hljs java">Date date = <span class="hljs-keyword">new</span> Date();
+<span class="hljs-comment">//如需时分秒则格式为：yyyy-MM-dd HH:mm:ss</span>
+SimpleDateFormat sdf = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>);
+String time = sdf.format(date);
+System.out.println(<span class="hljs-string">&quot;当前时间:&quot;</span>+time);</code></pre>
             </div>
             <hr>
             <div>
@@ -300,7 +282,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+                      <a class="hover-with-bg" href="/tags/Date%E5%B7%A5%E5%85%B7/">Date工具</a>
                     
                   </div>
                 
@@ -313,18 +295,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/09/22/LearnSpringBoot_2.1/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LearnBoot_2.1：RESTful接口与http协议状态表述</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/09/22/LearnSpringBoot_1.4/">
-                        <span class="hidden-mobile">LearnBoot_1.4：提高开发效率必备工具lombok</span>
+                      <a href="/2020/11/17/SqlIndexFailure/">
+                        <span class="hidden-mobile">Sql索引在哪些场景下会失效</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -493,7 +469,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "LearnBoot_1.5：IDEA环境下的热加载与热部署&nbsp;",
+        "Java中的日期类型&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
