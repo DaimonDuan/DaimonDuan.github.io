@@ -1,0 +1,1384 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="每天进步一点点">
+  <meta name="author" content="Daimon">
+  <meta name="keywords" content="Daimon">
+  <title>LearnPython_week01：基本数据类型 - Daimon的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Daimon</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 10:00" pubdate>
+        2021年2月9日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      123
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">LearnPython_week01：基本数据类型</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年2月9日 上午
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h3 id="一、数和四则运算"><a href="#一、数和四则运算" class="headerlink" title="一、数和四则运算"></a>一、数和四则运算</h3><h4 id="数"><a href="#数" class="headerlink" title="数"></a>数</h4><div class="note note-success">
+            <p>在python中，对数的规定比较简单，基本在小学数学水平即可理解。</p>
+          </div>
+
+<p>那么，做为零基础学习这，也就从计算小学数学题目开始吧。因为从这里开始，数学的基础知识列位肯定过关了。</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">123</span>
+<span class="hljs-number">123</span>
+&gt;&gt;&gt; <span class="hljs-number">3333333333333333333333333333333333333333</span>
+<span class="hljs-number">3333333333333333333333333333333333333333</span>
+&gt;&gt;&gt; <span class="hljs-number">3.333</span>
+<span class="hljs-number">3.333</span></code></pre>
+<p>上面显示的是在交互模式下，如果输入3，就显示了3，这样的数称为整数，这个称呼和小学数学一样。</p>
+<p>如果输入一个比较大的数，第二个，那么多个3组成的一个整数，在python中称之为长整数。在更早版本中为了表示某个数是长整数，python会在其末尾显示一个L。其实，现在的python已经能够自动将输入的很大的整数视为长整数了。你不必在这方面进行区别。</p>
+<p>第三个，在数学里面称为小数，这里你依然可以这么称呼，不过就像很多编程语言一样，习惯称之为“浮点数”。至于这个名称的由来，也是有点说道的，有兴趣可以网上搜一下.</p>
+<p>上述举例中，可以说都是无符号（或者说是非负数），如果要表示负数，跟数学中的表示方法一样，前面填上负号即可。</p>
+<p>值得注意的是，我们这里说的都是十进制的数。</p>
+<p>除了十进制，还有二进制、八进制、十六进制都是在编程中可能用到的，当然用六十进制的时候就比较少了（其实时间记录方式就是典型的六十进制）。</p>
+<p>具体每个数字，在Python中都是一个对象，比如前面输入的3，就是一个对象。每个对象，在内存中都有自己的一个地址，这个就是它的身份。</p>
+<div class="note note-success">
+            <p>用内建函数id()可以查看每个对象的内存地址，即身份。<br>内建函数，英文为built-in Function，读者根据名字也能猜个八九不离十了。不错，就是Python中已经定义好的内部函数。</p>
+          </div>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; id(<span class="hljs-number">123</span>)
+<span class="hljs-number">1713171224</span>
+&gt;&gt;&gt; id(<span class="hljs-number">3.111</span>)
+<span class="hljs-number">42519264</span>
+&gt;&gt;&gt; id(<span class="hljs-number">3</span>)
+<span class="hljs-number">1713169304</span>
+&gt;&gt;&gt; id(<span class="hljs-number">3.0</span>)
+<span class="hljs-number">42518864</span></code></pre>
+<p>以上四个不同的数字，是四个不同的对象，具有四个不同的内存地址。特别要注意，在数学上，3和3.0是相等的，但是在这里，它们是不同的对象。 用id()得到的内存地址，是只读的，不能修改。</p>
+<div class="note note-success">
+            <p>了解了“身份”，再来看“类型”，也有一个内建函数供使用type()。</p>
+          </div>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-number">3</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">int</span>&#x27;&gt;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-number">3.0</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">float</span>&#x27;&gt;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-number">3.222222</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">float</span>&#x27;&gt;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-string">&#x27;hello&#x27;</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">str</span>&#x27;&gt;</span></code></pre>
+<p>用内建函数能够查看对象的类型。，说明3是整数类型（Interger）；则告诉我们那个对象是浮点型（Floating point real number）。与id()的结果类似，type()得到的结果也是只读的。</p>
+<p>至于对象的值，在这里就是对象本身了。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>仅仅写出3、4、5是远远不够的，在编程语言中，经常要用到“变量”和“数”（在python中严格来讲是对象）建立一个对应关系。例如：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; x = <span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; x
+<span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; x = <span class="hljs-number">6</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; x
+<span class="hljs-number">6</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; y = <span class="hljs-number">123</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; y</code></pre>
+<p>在这个例子中，x = 5就是在变量(x)和数(5)之间建立了对应关系，接着又建立了x与6之间的对应关系。我们可以看到，x先“是”5，后来“是”6。</p>
+<p>在python中，有这样一句话是非常重要的：对象有类型，变量无类型。怎么理解呢？</p>
+<p>首先，5、6都是整数，python中为它们取了一个名字，叫做“整数”类型的数据，或者说数据类型是整数，用int表示。</p>
+<p>当我们在python中写入了5、6，computer姑娘就自动在她的内存中某个地方给我们建立这两个对象（对象的定义后面会讲，这里你先用着，逐渐就明晰含义了），就好比建造了两个雕塑，一个是形状似5，一个形状似6，这就两个对象，这两个对象的类型就是int.</p>
+<p>那个x呢？就好比是一个标签，当x = 5时，就是将x这个标签拴在了5上了，通过这个x，就顺延看到了5，于是在交互模式中，&gt;&gt;&gt; x输出的结果就是5，给人的感觉似乎是x就是5，事实是x这个标签贴在5上面。同样的道理，当x = 6时，标签就换位置了，贴到6上面。</p>
+<p>所以，这个标签x没有类型之说，它不仅可以贴在整数类型的对象上，还能贴在其它类型的对象上，比如后面会介绍到的str（字符串）类型的对象等等。</p>
+<p>这是python区别于一些语言非常重要的地方。</p>
+<h4 id="四则运算"><a href="#四则运算" class="headerlink" title="四则运算"></a>四则运算</h4><p>按照下面要求，在交互模式中运行，看看得到的结果和用小学数学知识运算之后得到的结果是否一致</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">1</span>+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+&gt;&gt;&gt; <span class="hljs-number">10</span><span class="hljs-number">-1</span>
+<span class="hljs-number">9</span>
+&gt;&gt;&gt; <span class="hljs-number">20</span>/<span class="hljs-number">4</span>
+<span class="hljs-number">5.0</span>
+&gt;&gt;&gt; <span class="hljs-number">10</span>*<span class="hljs-number">2</span>
+<span class="hljs-number">20</span>
+&gt;&gt;&gt; <span class="hljs-number">10</span>/<span class="hljs-number">5</span>+<span class="hljs-number">1</span>
+<span class="hljs-number">3.0</span>
+&gt;&gt;&gt; <span class="hljs-number">2</span>*<span class="hljs-number">3</span><span class="hljs-number">-4</span>
+<span class="hljs-number">2</span></code></pre>
+<p>上面的运算中，分别涉及到了四个运算符号：加(+)、减(-)、乘(*)、除(/)</p>
+<p>另外，我相信看官已经发现了一个重要的公理：</p>
+<p>在计算机中，四则运算和小学数学中学习过的四则运算规则是一样的</p>
+<p>要不说人是高等动物呢，自己发明的东西，一定要继承自己已经掌握的知识，别跟自己的历史过不去。伟大的科学家们，在当初设计计算机的时候就想到列位现在学习的需要了，一定不能让后世子孙再学新的运算规则，就用小学数学里面的好了。感谢那些科学家先驱者，泽被后世。</p>
+<p>下面计算三个算术题，看看结果是什么</p>
+<ul>
+<li>4 + 2</li>
+<li>4.0 + 2</li>
+<li>4.0 + 2.0<br>看官可能愤怒了，这么简单的题目，就不要劳驾计算机了，太浪费了。</li>
+</ul>
+<p>别着急，还是要运算一下，然后看看结果，有没有不一样？要仔细观察哦。</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">4</span>+<span class="hljs-number">2</span>
+<span class="hljs-number">6</span>
+&gt;&gt;&gt; <span class="hljs-number">4.0</span>+<span class="hljs-number">2</span>
+<span class="hljs-number">6.0</span>
+&gt;&gt;&gt; <span class="hljs-number">4.0</span>+<span class="hljs-number">2.0</span>
+<span class="hljs-number">6.0</span></code></pre>
+<p>不一样的地方是：第一个式子结果是6，这是一个整数；后面两个是6.0，这是浮点数。</p>
+<p>定义1：类似4、-2、129486655、-988654、0这样形式的数，称之为整数 定义2：类似4.0、-2.0、2344.123、3.1415926这样形式的数，称之为浮点数</p>
+<p>对这两个的定义，不用死记硬背，网上搜一下。记住爱因斯坦说的那句话：书上有的我都不记忆（是这么的说？好像是，大概意思，反正我也不记忆）。后半句他没说，我补充一下：忘了就网上搜一下。</p>
+<h4 id="整数溢出问题"><a href="#整数溢出问题" class="headerlink" title="整数溢出问题"></a>整数溢出问题</h4><div class="note note-success">
+            <p>似乎计算机做一些四则运算是不在话下的，但是，有一个问题请你务必注意：在数学中，整数是可以无限大的，但是在计算机中，整数不能无限大。为什么呢？（我推荐你去google，其实计算机的基本知识中肯定学习过了。）因此，就会有某种情况出现，就是参与运算的数或者运算结果超过了计算机中最大的数了，这种问题称之为“整数溢出问题”。</p>
+          </div>
+<p>对于其它语言，整数溢出是必须正视的，但是，在python里面，看官就无忧愁了，原因就是python为我们解决了这个问题，请阅读拙文：<a target="_blank" rel="noopener" href="https://github.com/qiwsir/algorithm/blob/master/big_int.md">大整数相乘</a></p>
+<p>ok!看官可以在IDE中实验一下大整数相乘。</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">1234567898765432123456789</span>*<span class="hljs-number">1234567898765432123456789</span>
+<span class="hljs-number">1524157896662094260021335314738613077274750190521</span>
+&gt;&gt;&gt; <span class="hljs-number">12333333333333333333333333333333333333333333</span>*<span class="hljs-number">3211111111111111111111111111111111111111111111111111</span>
+<span class="hljs-number">39603703703703703703703703703703703703703702633333331962962962962962962962962962962962962962963</span></code></pre>
+<p>在结束本节之前，有两个符号需要看官牢记（不记住也没关系，可以随时google，只不过记住后使用更方便）</p>
+<p>整数，用int表示，来自单词：integer<br>浮点数，用float表示，就是单词：float<br>可以用一个命令：type(object)来检测一个数是什么类型。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-number">3</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">int</span>&#x27;&gt;	<span class="hljs-comment">#3是int，整数</span></span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-number">3.0</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">float</span>&#x27;&gt;	<span class="hljs-comment">#3.0是float，浮点数</span></span></code></pre>
+
+<h3 id="二、除法"><a href="#二、除法" class="headerlink" title="二、除法"></a>二、除法</h3><h4 id="整数除以整数"><a href="#整数除以整数" class="headerlink" title="整数除以整数"></a>整数除以整数</h4><p>进入python交互模式之后（以后在本教程中，可能不再重复这类的叙述，只要看到&gt;&gt;&gt;，就说明是在交互模式下），练习下面的运算：</p>
+<pre><code class="hljs angelscript"># python <span class="hljs-number">2.</span>x：
+&gt;&gt;&gt; <span class="hljs-number">2</span> / <span class="hljs-number">5</span>
+<span class="hljs-number">0</span>
+&gt;&gt;&gt; <span class="hljs-number">2.0</span> / <span class="hljs-number">5</span>
+<span class="hljs-number">0.4</span>
+&gt;&gt;&gt; <span class="hljs-number">2</span> / <span class="hljs-number">5.0</span>
+<span class="hljs-number">0.4</span>
+&gt;&gt;&gt; <span class="hljs-number">2.0</span> / <span class="hljs-number">5.0</span>
+<span class="hljs-number">0.4</span>
+
+# python <span class="hljs-number">3.</span>x：
+&gt;&gt;&gt; <span class="hljs-number">2</span>/<span class="hljs-number">5</span>
+<span class="hljs-number">0.4</span>
+&gt;&gt;&gt; <span class="hljs-number">2.0</span>/<span class="hljs-number">5</span>
+<span class="hljs-number">0.4</span>
+&gt;&gt;&gt; <span class="hljs-number">2</span>/<span class="hljs-number">5.0</span>
+<span class="hljs-number">0.4</span>
+&gt;&gt;&gt; <span class="hljs-number">2.0</span>/<span class="hljs-number">5.0</span></code></pre>
+<p>看到没有？麻烦出来了（这是在python2.x中），按照数学运算，以上四个运算结果都应该是0.4。但我们看到的后三个符合，第一个居然结果是0。why?</p>
+<p>因为，在python（严格说是python2.x中，python3会有所变化）里面有一个规定，像2/5中的除法这样，是要取整（就是去掉小数，但不是四舍五入）。2除以5，商是0（整数），余数是2（整数）。那么如果用这种形式：2/5，计算结果就是商那个整数。或者可以理解为：整数除以整数，结果是整数（商）。</p>
+<p>比如：</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">5</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">2</span>
+&gt;&gt;&gt; <span class="hljs-number">7</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+&gt;&gt;&gt; <span class="hljs-number">8</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">4</span></code></pre>
+<p><strong>注意：</strong>得到是商（整数）,而不是得到含有小数位的结果再通过“四舍五入”取整。例如：5/2，得到的是商2，余数1，最终5 / 2 = 2。并不是对2.5进行四舍五入。</p>
+<h4 id="浮点数与整数相除"><a href="#浮点数与整数相除" class="headerlink" title="浮点数与整数相除"></a>浮点数与整数相除</h4><p>这个标题和上面的标题格式不一样，上面的标题是“整数除以整数”，如果按照风格一贯制的要求，本节标题应该是“浮点数除以整数”，但没有，现在是“浮点数与整数相除”，其含义是：</p>
+<blockquote>
+<p>假设：x除以y。其中 x 可能是整数，也可能是浮点数；y可能是整数，也可能是浮点数。</p>
+</blockquote>
+<p>出结论之前，还是先做实验：</p>
+<pre><code class="hljs angelscript"># python <span class="hljs-number">2.</span>x：
+&gt;&gt;&gt; <span class="hljs-number">9.0</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9</span> / <span class="hljs-number">2.0</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9.0</span> / <span class="hljs-number">2.0</span>
+<span class="hljs-number">4.5</span>
+
+&gt;&gt;&gt; <span class="hljs-number">8.0</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">4.0</span>
+&gt;&gt;&gt; <span class="hljs-number">8</span> / <span class="hljs-number">2.0</span>
+<span class="hljs-number">4.0</span>
+&gt;&gt;&gt; <span class="hljs-number">8.0</span> / <span class="hljs-number">2.0</span>
+<span class="hljs-number">4.0</span>
+
+# python <span class="hljs-number">3.</span>x：
+&gt;&gt;&gt; <span class="hljs-number">9.0</span>/<span class="hljs-number">2</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9</span>/<span class="hljs-number">2.0</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9.0</span>/<span class="hljs-number">2.0</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">8.0</span>/<span class="hljs-number">2</span>
+<span class="hljs-number">4.0</span>
+&gt;&gt;&gt; <span class="hljs-number">8</span>/<span class="hljs-number">2.0</span>
+<span class="hljs-number">4.0</span>
+&gt;&gt;&gt; <span class="hljs-number">8.0</span>/<span class="hljs-number">2.0</span>
+<span class="hljs-number">4.0</span></code></pre>
+<p>归纳，得到规律：<strong>不管是被除数还是除数，只要有一个数是浮点数，结果就是浮点数。</strong>所以，如果相除的结果有余数，也不会像前面一样了，而是要返回一个浮点数，这就跟在数学上学习的结果一样了。</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">10.0</span> / <span class="hljs-number">3</span>
+<span class="hljs-number">3.3333333333333335</span></code></pre>
+
+<p>这个是不是就有点搞怪了，按照数学知识，应该是3.33333…，后面是3的循环了。那么你的计算机就停不下来了，满屏都是3。为了避免这个，python武断终结了循环，但是，可悲的是没有按照“四舍五入”的原则终止。当然，还会有更奇葩的出现：</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>
+<span class="hljs-number">0.30000000000000004</span>
+&gt;&gt;&gt; <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> - <span class="hljs-number">0.2</span>
+<span class="hljs-number">0.0</span>
+&gt;&gt;&gt; <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> - <span class="hljs-number">0.3</span>
+<span class="hljs-number">5.551115123125783e-17</span>
+&gt;&gt;&gt; <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> + <span class="hljs-number">0.1</span> - <span class="hljs-number">0.2</span>
+<span class="hljs-number">0.10000000000000003</span></code></pre>
+
+<p>越来越糊涂了，为什么computer姑娘在计算这么简单的问题上，如此糊涂了呢？不是computer姑娘糊涂，她依然冰雪聪明。原因在于十进制和二进制的转换上，computer姑娘用的是二进制进行计算，上面的例子中，我们输入的是十进制，她就要把十进制的数转化为二进制，然后再计算。但是，在转化中，浮点数转化为二进制，就出问题了。</p>
+<p>例如十进制的0.1，转化为二进制是：0.0001100110011001100110011001100110011001100110011…</p>
+<p>也就是说，转化为二进制后，不会精确等于十进制的0.1。同时，计算机存储的位数是有限制的，所以，就出现上述现象了。</p>
+<p>这种问题不仅仅是python中有，所有支持浮点数运算的编程语言都会遇到，它不是python的bug。</p>
+<p>明白了问题原因，怎么解决呢？就python的浮点数运算而言，大多数机器上每次计算误差不超过 2**53 分之一。对于大多数任务这已经足够了，但是要在心中记住这不是十进制算法，每个浮点数计算可能会带来一个新的舍入错误。</p>
+<p>一般情况下，只要简单地将最终显示的结果用“四舍五入”到所期望的十进制位数，就会得到期望的最终结果。</p>
+<p>对于需要非常精确的情况，可以使用 decimal 模块，它实现的十进制运算适合会计方面的应用和高精度要求的应用。另外 fractions 模块支持另外一种形式的运算，它实现的运算基于有理数（因此像1/3这样的数字可以精确地表示）。最高要求则可是使用由 SciPy提供的 Numerical Python 包和其它用于数学和统计学的包。列出这些东西，仅仅是让看官能明白，解决问题的方式很多，后面会用这些中的某些方式解决上述问题。</p>
+<h4 id="引用模块解决除法–启用轮子"><a href="#引用模块解决除法–启用轮子" class="headerlink" title="引用模块解决除法–启用轮子"></a>引用模块解决除法–启用轮子</h4><p>python之所以受人欢迎，一个很重重要的原因，就是轮子多。这是比喻啦。就好比你要跑的快，怎么办？光天天练习跑步是不行滴，要用轮子。找辆自行车，就快了很多。还嫌不够快，再换电瓶车，再换汽车，再换高铁…反正你可以选择的很多。但是，这些让你跑的快的东西，多数不是你自己造的，是别人造好了，你来用。甚至两条腿也是感谢父母恩赐。正是因为轮子多，可以选择的多，就可以以各种不同速度享受了。</p>
+<p>轮子是人类伟大的发明。</p>
+<p>python就是这样，有各种轮子，我们只需要用。只不过那些轮子在python里面的名字不叫自行车、汽车，叫做“模块”，有人承接别的语言的名称，叫做“类库”、“类”。不管叫什么名字吧。就是别人造好的东西我们拿过来使用。</p>
+<p>怎么用？可以通过两种形式用：</p>
+<ul>
+<li>形式1：import module-name。import后面跟空格，然后是模块名称，例如：import os</li>
+<li>形式2：from module1 import module11。module1是一个大模块，里面还有子模块module11，只想用module11，就这么写了。</li>
+</ul>
+<p>不啰嗦了，实验一个：</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> division
+&gt;&gt;&gt; <span class="hljs-number">5</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">2.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9.0</span> / <span class="hljs-number">2</span>
+<span class="hljs-number">4.5</span>
+&gt;&gt;&gt; <span class="hljs-number">9</span> / <span class="hljs-number">2.0</span>
+<span class="hljs-number">4.5</span>
+
+# IDE工具写法
+<span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> division
+
+print(<span class="hljs-number">5</span>/<span class="hljs-number">2</span>);
+print(<span class="hljs-number">9</span>/<span class="hljs-number">2</span>);
+print(<span class="hljs-number">9.0</span>/<span class="hljs-number">2</span>);
+print(<span class="hljs-number">9</span>/<span class="hljs-number">2.0</span>);
+
+# 结果
+<span class="hljs-number">2.5</span>
+<span class="hljs-number">4.5</span>
+<span class="hljs-number">4.5</span>
+<span class="hljs-number">4.5</span></code></pre>
+<div class="note note-success">
+            <p>注意了，引用了一个模块之后，再做除法，就不管什么情况，都是得到浮点数的结果了。<br>这就是轮子的力量。</p>
+          </div>
+
+<h4 id="余数"><a href="#余数" class="headerlink" title="余数"></a>余数</h4><p>前面计算5/2的时候，商是2，余数是1</p>
+<p>余数怎么得到？在python中（其实大多数语言也都是），用%符号来取得两个数相除的余数.</p>
+<p>实验下面的操作：</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">5</span>%<span class="hljs-number">2</span>
+<span class="hljs-number">1</span>
+&gt;&gt;&gt; <span class="hljs-number">6</span>%<span class="hljs-number">4</span>
+<span class="hljs-number">2</span>
+&gt;&gt;&gt; <span class="hljs-number">5.0</span>%<span class="hljs-number">2</span>
+<span class="hljs-number">1.0</span></code></pre>
+<p>符号：%，就是要得到两个数（可以是整数，也可以是浮点数）相除的余数。</p>
+<div class="note note-success">
+            <p>前面说python有很多人见人爱的轮子（模块），她还有丰富的内建函数，也会帮我们做不少事情。例如函数divmod()</p>
+          </div>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; divmod(<span class="hljs-number">5</span>,<span class="hljs-number">2</span>)	# 表示<span class="hljs-number">5</span>除以<span class="hljs-number">2</span>，返回了商和余数
+(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+&gt;&gt;&gt; divmod(<span class="hljs-number">9</span>,<span class="hljs-number">2</span>)
+(<span class="hljs-number">4</span>, <span class="hljs-number">1</span>)
+&gt;&gt;&gt; divmod(<span class="hljs-number">5.0</span>,<span class="hljs-number">2</span>)
+(<span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>)</code></pre>
+
+<h4 id="四舍五入"><a href="#四舍五入" class="headerlink" title="四舍五入"></a>四舍五入</h4><p>要实现四舍五入，很简单，就是内建函数：round()</p>
+<p>动手试试：</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; round(<span class="hljs-number">1.234567</span>,<span class="hljs-number">2</span>)
+<span class="hljs-number">1.23</span>
+&gt;&gt;&gt; round(<span class="hljs-number">1.234567</span>,<span class="hljs-number">3</span>)
+<span class="hljs-number">1.235</span>
+&gt;&gt;&gt; round(<span class="hljs-number">10.0</span>/<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+<span class="hljs-number">3.3333</span></code></pre>
+
+<p>简单吧。越简单的时候，越要小心，当你遇到下面的情况，就有点怀疑了：</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; round(<span class="hljs-number">1.2345</span>,<span class="hljs-number">3</span>)
+<span class="hljs-number">1.234</span>				#应该是：<span class="hljs-number">1.235</span>
+&gt;&gt;&gt; round(<span class="hljs-number">2.235</span>,<span class="hljs-number">2</span>)
+<span class="hljs-number">2.23</span>				#应该是：<span class="hljs-number">2.24</span></code></pre>
+
+<p>具体解释看这里，下面摘录官方文档中的一段话：</p>
+<blockquote>
+<p>Note: The behavior of round() for floats can be surprising: for example, round(2.675, 2) gives 2.67 instead of the expected 2.68.<br>This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float.<br><a target="_blank" rel="noopener" href="https://docs.python.org/2/tutorial/floatingpoint.html#tut-fp-issues">See Floating Point Arithmetic: Issues and Limitations for more information.</a><br>译文：<br>注意:round()对于浮点数的行为可能会令人惊讶:例如，round(2.675,2)给出的是2.67而不是预期的2.68。<br>这不是bug:这是大多数小数不能用浮点数精确表示的结果。<br><a target="_blank" rel="noopener" href="https://docs.python.org/2/tutorial/floatingpoint.html#tut-fp-issues">有关更多信息，请参阅浮点运算:问题和限制。</a></p>
+</blockquote>
+<p>归根到底还是浮点数中的十进制转化为二进制惹的祸。</p>
+<h3 id="三、常用数字函数和运算优先级"><a href="#三、常用数字函数和运算优先级" class="headerlink" title="三、常用数字函数和运算优先级"></a>三、常用数字函数和运算优先级</h3><p>在数学之中，除了加减乘除四则运算之外——这是小学数学——还有其它更多的运算，比如乘方、开方、对数运算等等，要实现这些运算，需要用到python中的一个模块：Math</p>
+<blockquote>
+<p>模块(module)是python中非常重要的东西，你可以把它理解为python的扩展工具。<br>换言之，python默认情况下提供了一些可用的东西，但是这些默认情况下提供的还远远不能满足编程实践的需要，于是就有人专门制作了另外一些工具。<br>这些工具被称之为“模块” 任何一个pythoner都可以编写模块，并且把这些模块放到网上供他人来使用。<br>当安装好python之后，就有一些模块默认安装了，这个称之为“标准库”，“标准库”中的模块不需要安装，就可以直接使用。<br>如果没有纳入标准库的模块，需要安装之后才能使用。<br>模块的安装方法，我特别推荐使用pip来安装。这里仅仅提一下，后面会专门进行讲述，性急的看官可以自己网上搜索一下。</p>
+</blockquote>
+<h4 id="使用math模块"><a href="#使用math模块" class="headerlink" title="使用math模块"></a>使用math模块</h4><p>math模块是标准库中的，所以不用安装，可以直接使用。使用方法是：</p>
+<pre><code class="hljs python-repl"><span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python"><span class="hljs-keyword">import</span> math</span></code></pre>
+<p>用import就将math模块引用过来了，下面就可以使用这个模块提供的工具了。比如，要得到圆周率：</p>
+<pre><code class="hljs css">&gt;&gt;&gt; <span class="hljs-selector-tag">math</span><span class="hljs-selector-class">.pi</span>
+3<span class="hljs-selector-class">.141592653589793</span></code></pre>
+<p>这个模块都能做哪些事情呢？可以用下面的方法看到：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; dir(math)
+[<span class="hljs-string">&#x27;__doc__&#x27;</span>, <span class="hljs-string">&#x27;__loader__&#x27;</span>, <span class="hljs-string">&#x27;__name__&#x27;</span>, <span class="hljs-string">&#x27;__package__&#x27;</span>, <span class="hljs-string">&#x27;__spec__&#x27;</span>, <span class="hljs-string">&#x27;acos&#x27;</span>, <span class="hljs-string">&#x27;acosh&#x27;</span>, <span class="hljs-string">&#x27;asin&#x27;</span>, <span class="hljs-string">&#x27;asinh&#x27;</span>, <span class="hljs-string">&#x27;atan&#x27;</span>, <span class="hljs-string">&#x27;atan2&#x27;</span>, <span class="hljs-string">&#x27;atanh&#x27;</span>, <span class="hljs-string">&#x27;ceil&#x27;</span>, <span class="hljs-string">&#x27;copysign&#x27;</span>, <span class="hljs-string">&#x27;cos&#x27;</span>, <span class="hljs-string">&#x27;cosh&#x27;</span>, <span class="hljs-string">&#x27;degrees&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;erf&#x27;</span>, <span class="hljs-string">&#x27;erfc&#x27;</span>, <span class="hljs-string">&#x27;exp&#x27;</span>, <span class="hljs-string">&#x27;expm1&#x27;</span>, <span class="hljs-string">&#x27;fabs&#x27;</span>, <span class="hljs-string">&#x27;factorial&#x27;</span>, <span class="hljs-string">&#x27;floor&#x27;</span>, <span class="hljs-string">&#x27;fmod&#x27;</span>, <span class="hljs-string">&#x27;frexp&#x27;</span>, <span class="hljs-string">&#x27;fsum&#x27;</span>, <span class="hljs-string">&#x27;gamma&#x27;</span>, <span class="hljs-string">&#x27;hypot&#x27;</span>, <span class="hljs-string">&#x27;isfinite&#x27;</span>, <span class="hljs-string">&#x27;isinf&#x27;</span>, <span class="hljs-string">&#x27;isnan&#x27;</span>, <span class="hljs-string">&#x27;ldexp&#x27;</span>, <span class="hljs-string">&#x27;lgamma&#x27;</span>, <span class="hljs-string">&#x27;log&#x27;</span>, <span class="hljs-string">&#x27;log10&#x27;</span>, <span class="hljs-string">&#x27;log1p&#x27;</span>, <span class="hljs-string">&#x27;log2&#x27;</span>, <span class="hljs-string">&#x27;modf&#x27;</span>, <span class="hljs-string">&#x27;pi&#x27;</span>, <span class="hljs-string">&#x27;pow&#x27;</span>, <span class="hljs-string">&#x27;radians&#x27;</span>, <span class="hljs-string">&#x27;sin&#x27;</span>, <span class="hljs-string">&#x27;sinh&#x27;</span>, <span class="hljs-string">&#x27;sqrt&#x27;</span>, <span class="hljs-string">&#x27;tan&#x27;</span>, <span class="hljs-string">&#x27;tanh&#x27;</span>, <span class="hljs-string">&#x27;trunc&#x27;</span>]</code></pre>
+
+<span class="label label-success">dir(module)</span> 是一个非常有用的指令，可以通过它查看任何模块中所包含的工具。从上面的列表中就可以看出，在math模块中，可以计算正sin(a),cos(a),sqrt(a)......
+
+<p>这些我们称之为函数，也就是在模块math中提供了各类计算的函数，比如计算乘方，可以使用pow函数。但是，怎么用呢？</p>
+<p>python是一个非常周到的姑娘，她早就提供了一个命令，让我们来查看每个函数的使用方法：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; help(math.pow)</code></pre>
+
+<p>在交互模式下输入上面的指令，然后回车，看到下面的信息：</p>
+<pre><code class="hljs gml">&gt;&gt;&gt; help(math.pow)
+Help on built-in function pow in module math:
+
+pow(...)
+    pow(<span class="hljs-symbol">x</span>, <span class="hljs-symbol">y</span>)
+    
+    Return <span class="hljs-symbol">x</span>**<span class="hljs-symbol">y</span> (<span class="hljs-symbol">x</span> to the <span class="hljs-built_in">power</span> of <span class="hljs-symbol">y</span>).</code></pre>
+<p>这里展示了math模块中的pow函数的使用方法和相关说明。</p>
+<ol>
+<li>第一行意思是说这里是math模块的内建函数pow帮助信息（所谓built-in，称之为内建函数，是说这个函数是python默认就有的)</li>
+<li>第三行，表示这个函数的参数，有两个，也是函数的调用方式</li>
+<li>第四行，是对函数的说明，返回x<strong>y的结果，并且在后面解释了x</strong>y的含义。</li>
+<li>最后，按q键返回到python交互模式</li>
+</ol>
+<p>从上面看到了一个额外的信息，就是pow函数和x**y是等效的，都是计算x的y次方。</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; <span class="hljs-number">4</span>**<span class="hljs-number">2</span>
+<span class="hljs-number">16</span>
+&gt;&gt;&gt; math.pow(<span class="hljs-number">4</span>,<span class="hljs-number">2</span>)
+<span class="hljs-number">16.0</span>
+&gt;&gt;&gt; <span class="hljs-number">4</span>*<span class="hljs-number">2</span>
+<span class="hljs-number">8</span>
+
+# 特别注意，<span class="hljs-number">4</span>**<span class="hljs-number">2</span> 和  <span class="hljs-number">4</span>*<span class="hljs-number">2</span> 是有很大区别的。</code></pre>
+<p>用类似的方法，可以查看math模块中的任何一个函数的使用方法。</p>
+<blockquote>
+<p>关于“函数”的问题，在这里不做深入阐述，看管姑且按照自己在数学中所学到去理解。后面会有专门研究函数的章节。</p>
+</blockquote>
+<p>下面是几个常用的math模块中函数举例，可以结合自己调试的进行比照。</p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; math.sqrt(<span class="hljs-number">9</span>)
+<span class="hljs-number">3.0</span>
+&gt;&gt;&gt; math.floor(<span class="hljs-number">3.14</span>)
+<span class="hljs-number">3.0</span>
+&gt;&gt;&gt; math.floor(<span class="hljs-number">3.92</span>)
+<span class="hljs-number">3.0</span>
+&gt;&gt;&gt; math.fabs(<span class="hljs-number">-2</span>)    #等价于abs(<span class="hljs-number">-2</span>)
+<span class="hljs-number">2.0</span>
+&gt;&gt;&gt; abs(<span class="hljs-number">-2</span>)
+<span class="hljs-number">2</span>
+&gt;&gt;&gt; math.fmod(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>)    #等价于<span class="hljs-number">5</span>%<span class="hljs-number">3</span>
+<span class="hljs-number">2.0</span>
+&gt;&gt;&gt; <span class="hljs-number">5</span>%<span class="hljs-number">3</span>
+<span class="hljs-number">2</span></code></pre>
+
+<h4 id="几个常见函数"><a href="#几个常见函数" class="headerlink" title="几个常见函数"></a>几个常见函数</h4><p>有几个常用的函数，列一下，如果记不住也不要紧，知道有这些就好了，用的时候就网上搜一下。<br><strong>求绝对值</strong></p>
+<pre><code class="hljs angelscript">&gt;&gt;&gt; abs(<span class="hljs-number">10</span>)
+<span class="hljs-number">10</span>
+&gt;&gt;&gt; abs(<span class="hljs-number">-10</span>)
+<span class="hljs-number">10</span>
+&gt;&gt;&gt; abs(<span class="hljs-number">-1.2</span>)
+<span class="hljs-number">1.2</span></code></pre>
+<p><strong>四舍五入</strong></p>
+<pre><code class="hljs fortran">&gt;&gt;&gt; <span class="hljs-keyword">round</span>(<span class="hljs-number">1.234</span>)
+<span class="hljs-number">1.0</span>
+&gt;&gt;&gt; <span class="hljs-keyword">round</span>(<span class="hljs-number">1.234</span>,<span class="hljs-number">2</span>)
+<span class="hljs-number">1.23</span>
+
+&gt;&gt;&gt; #如果不清楚这个函数的用法，可以使用下面方法看帮助信息
+&gt;&gt;&gt; help(<span class="hljs-keyword">round</span>)
+Help on built-<span class="hljs-keyword">in</span> <span class="hljs-function"><span class="hljs-keyword">function</span></span> <span class="hljs-keyword">round</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">module</span> builtins:
+
+<span class="hljs-keyword">round</span>(<span class="hljs-number">.</span><span class="hljs-number">.</span><span class="hljs-number">.</span>)
+    <span class="hljs-keyword">round</span>(<span class="hljs-keyword">number</span>[, ndigits]) -&gt; <span class="hljs-keyword">number</span>
+    
+    <span class="hljs-keyword">Round</span> a <span class="hljs-keyword">number</span> to a given <span class="hljs-keyword">precision</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">decimal</span> <span class="hljs-built_in">digits</span> (<span class="hljs-keyword">default</span> <span class="hljs-number">0</span> <span class="hljs-built_in">digits</span>)<span class="hljs-number">.</span>
+    This returns an <span class="hljs-built_in">int</span> when called with one argument, otherwise the
+    same <span class="hljs-keyword">type</span> as the <span class="hljs-keyword">number</span><span class="hljs-number">.</span> ndigits may be negative<span class="hljs-number">.</span></code></pre>
+
+<h4 id="运算优先级"><a href="#运算优先级" class="headerlink" title="运算优先级"></a>运算优先级</h4><p>从小学数学开始，就研究运算优先级的问题，比如四则运算中“先乘除，后加减”，说明乘法、除法的优先级要高于加减。</p>
+<p>对于同一级别的，就按照“从左到右”的顺序进行计算。</p>
+<p>下面的表格中列出了python中的各种运算的优先级顺序。不过，就一般情况而言，不需要记忆，完全可以按照数学中的去理解，因为人类既然已经发明了数学，在计算机中进行的运算就不需要从新编写一套新规范了，只需要符合数学中的即可。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lambda</td>
+<td>Lambda表达式</td>
+</tr>
+<tr>
+<td>or</td>
+<td>布尔“或”</td>
+</tr>
+<tr>
+<td>and</td>
+<td>布尔“与”</td>
+</tr>
+<tr>
+<td>not x</td>
+<td>布尔“非”</td>
+</tr>
+<tr>
+<td>in，not in</td>
+<td>成员测试</td>
+</tr>
+<tr>
+<td>is，is not</td>
+<td>同一性测试</td>
+</tr>
+<tr>
+<td>，&gt;=，!=，==</td>
+<td>比较</td>
+</tr>
+<tr>
+<td>∣</td>
+<td>按位或</td>
+</tr>
+<tr>
+<td>^</td>
+<td>按位异或</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>按位与</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>移位</td>
+</tr>
+<tr>
+<td>+，-</td>
+<td>加法与减法</td>
+</tr>
+<tr>
+<td>*，/，%</td>
+<td>乘法、除法与取余</td>
+</tr>
+<tr>
+<td>+x，-x</td>
+<td>正负号</td>
+</tr>
+<tr>
+<td>~x</td>
+<td>按位翻转</td>
+</tr>
+<tr>
+<td>**</td>
+<td>指数</td>
+</tr>
+<tr>
+<td>x.attribute</td>
+<td>属性参考</td>
+</tr>
+<tr>
+<td>x[index]</td>
+<td>下标</td>
+</tr>
+<tr>
+<td>x[index:index]</td>
+<td>寻址段</td>
+</tr>
+<tr>
+<td>f(arguments…)</td>
+<td>函数调用</td>
+</tr>
+<tr>
+<td>(experession,…)</td>
+<td>绑定或元组显示</td>
+</tr>
+<tr>
+<td>[expression,…]</td>
+<td>列表显示</td>
+</tr>
+<tr>
+<td>{key:datum,…}</td>
+<td>字典显示</td>
+</tr>
+<tr>
+<td>‘expression,…’</td>
+<td>字符串转换</td>
+</tr>
+</tbody></table>
+<p>上面的表格将python中用到的与运算符有关的都列出来了，是按照从低到高的顺序列出的。虽然有很多还不知道是怎么回事，不过先列出来，等以后用到了，还可以回来查看。</p>
+<p>最后，要提及的是运算中的绝杀：括号。只要有括号，就先计算括号里面的。这是数学中的共识，无需解释。</p>
+<h3 id="四、写一个简单的程序"><a href="#四、写一个简单的程序" class="headerlink" title="四、写一个简单的程序"></a>四、写一个简单的程序</h3><p>通过对四则运算的学习，已经初步接触了Python中内容，如果看官是零基础的学习者，可能有点迷惑了。<br>难道敲几个命令，然后看到结果，就算编程了？这也不是那些能够自动运行的程序呀？<br>的确。到目前为止，还不能算编程，只能算会用一些指令（或者叫做命令）来做点简单的工作。</p>
+<div class="note note-success">
+            <p>开始编写一个真正的简单程序。</p>
+          </div>
+
+<h4 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h4><p>计算机程序</p>
+<blockquote>
+<p>计算机程序（Computer Program）是指一组指示计算机或其他具有信息处理能力装置每一步动作的指令，通常用某种程序设计语言编写，运行于某种目标体系结构上。<br>打个比方，一个程序就像一个用汉语（程序设计语言）写下的红烧肉菜谱（程序），用于指导懂汉语和烹饪手法的人（体系结构）来做这个菜。<br>通常，计算机程序要经过编译和链接而成为一种人们不易看清而计算机可解读的格式，然后运行。未经编译就可运行的程序，通常称之为脚本程序（script）。</p>
+</blockquote>
+<p>程序，简而言之，就是指令的集合。但是，有的程序需要编译，有的不需要。python编写的程序就不需要，因此她也被称之为解释性语言，编程出来的层序被叫做脚本程序。<br>在有的程序员头脑中，有一种认为“编译型语言比解释性语言高价”的认识。这是错误的。不要认为编译的就好，不编译的就不好；也不要认为编译的就“高端”，不编译的就属于“低端”。<br>有一些做了很多年程序的程序员或者其它什么人，可能会有这样的想法，这是毫无根据的。<br>不争论。用得妙就是好。</p>
+<h4 id="使用IDE工具"><a href="#使用IDE工具" class="headerlink" title="使用IDE工具"></a>使用IDE工具</h4><p>见 <strong>LearnPython_day00：前言</strong>，选择合适的开发工具可以事半功倍</p>
+<h4 id="解一道题目"><a href="#解一道题目" class="headerlink" title="解一道题目"></a>解一道题目</h4><p>请计算：19+2*4-8/2</p>
+<p>代码如下：</p>
+<pre><code class="hljs lsl"><span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;</span>
+<span class="hljs-string">请计算：19+2*4-8/2</span>
+<span class="hljs-string">&quot;</span><span class="hljs-string">&quot;&quot;</span>
+print(<span class="hljs-number">19</span>+<span class="hljs-number">2</span>*<span class="hljs-number">4</span><span class="hljs-number">-8</span>/<span class="hljs-number">2</span>);
+
+# 或：
+a = <span class="hljs-number">19</span>+<span class="hljs-number">2</span>*<span class="hljs-number">4</span><span class="hljs-number">-8</span>/<span class="hljs-number">2</span>;
+print(a)</code></pre>
+
+<p>执行结果如下：</p>
+<pre><code class="hljs angelscript"><span class="hljs-number">23.0</span>
+<span class="hljs-number">23.0</span></code></pre>
+<div class="note note-success">
+            <p>提醒初学者，别复制这段代码，而是要一个字一个字的敲进去。</p>
+          </div>
+
+<p>下面对这个简单程序进行一一解释。</p>
+<pre><code class="hljs awk"><span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">请计算：</span>
+<span class="hljs-string">19+2*4-8/2</span>
+<span class="hljs-string">&quot;&quot;&quot;</span></code></pre>
+<p>这一行是让人看的，计算机看不懂。在python程序中（别的编程语言也是如此），要写所谓的注释，就是对程序或者某段语句的说明文字，这些文字在计算机执行程序的时候，被计算机姑娘忽略，但是，注释又是必不可少的，正如前面说的那样，程序在大多数情况下是给人看的。注释就是帮助人理解程序的。</p>
+<p>写注释的方式有两种，一种是单行注释，用 <span class="label label-primary">#</span> 开头，另外一种是多行注释，用一对 <span class="label label-primary">"""</span> 包裹起来。</p>
+<p>用 <span class="label label-primary">#</span> 开头的注释，可以像下面这样来写：</p>
+<pre><code class="hljs angelscript"># 请计算：<span class="hljs-number">19</span>+<span class="hljs-number">2</span>*<span class="hljs-number">4</span><span class="hljs-number">-8</span>/<span class="hljs-number">2</span></code></pre>
+<p>这种注释通常写在程序中的某个位置，比如某个语句的前面或者后面。计算机也会忽略这种注释的内容，只是给人看的。以#开头的注释，会在后面的编程中大量使用。<br><em>一般在程序的开头部分，都要写点东西，主要是告诉别人这个程序是用来做什么的。</em></p>
+<pre><code class="hljs angelscript">a = <span class="hljs-number">19</span>+<span class="hljs-number">2</span>*<span class="hljs-number">4</span><span class="hljs-number">-8</span>/<span class="hljs-number">2</span></code></pre>
+<p>所谓语句，就是告诉程序要做什么事情。程序就是有各种各样的语句组成的。这条语句，又有一个名字，叫做复制语句。</p>
+<span class="label label-primary">19+2*4-8/2</span> 是一个表达式，最后要计算出一个结果，这个结果就是一个对象（又遇到了对象这个术语。在某些地方的方言中，把配偶、男女朋友也称之为对象，“对象”是一个应用很广泛的术语）。
+<span class="label label-primary">=</span> 不要理解为数学中的等号，它的作用不是等于，而是完成赋值语句中“赋值”的功能。
+<span class="label label-primary">a</span> 就是变量。这样就完成了一个赋值过程。
+
+<div class="note note-success">
+            <p>语句和表达式的区别：“表达式就是某件事”，“语句是做某件事”。</p>
+          </div>
+
+<pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(a)</span></span></code></pre>
+<p>这还是一个语句，称之为print语句，就是要打印出a的值（这种说法不是非常非常严格，但是通常总这么说。按照严格的说法，是打印变量a做对应的对象的值。嫌这种说法啰嗦，就直接说打印a的值）。</p>
+<h3 id="五、字符串-1"><a href="#五、字符串-1" class="headerlink" title="五、字符串(1)"></a>五、字符串(1)</h3><h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><blockquote>
+<p>字符串（String），是由零个或多个字符组成的有限串行。一般记为s=a[1]a[2]…a[n]。</p>
+</blockquote>
+<p>根据这个定义，在前面两次让一个程序员感到伟大的”Hello,World”，就是一个字符串。或者说不管用英文还是中文还是别的某种文，写出来的文字都可以做为字符串对待，当然，里面的特殊符号，也是可以做为字符串的，比如空格等。</p>
+<p>严格地说，在python中的字符串是一种对象类型，这种类型用str表示，通常单引号’’或者双引号””包裹起来。</p>
+<blockquote>
+<p>字符串和前面讲过的数字一样，都是对象的类型，或者说都是值。当然，表示方式还是有区别的。</p>
+</blockquote>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;I love Daimon&quot;</span>
+<span class="hljs-string">&#x27;I love Daimon&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&#x27;I love Daimon&#x27;</span>
+<span class="hljs-string">&#x27;I love Daimon&#x27;</span></code></pre>
+
+<p>从这两个例子中可以看出来，不论使用单引号还是双引号，结果都是一样的。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-number">123</span>
+<span class="hljs-number">123</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-number">123</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">int</span>&#x27;&gt;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;123&quot;</span>
+<span class="hljs-string">&#x27;123&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(<span class="hljs-string">&quot;123&quot;</span>)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">str</span>&#x27;&gt;</span></code></pre>
+
+<p>仔细观察上面的区别，同样是123，一个没有放在引号里面，一个放在了引号里面，用 <strong>type()</strong> 函数来检验一下，发现它们居然是两种不同的对象类型，前者是int类型，后者则是str类型，即字符串类型。<br>所以，请大家务必注意，不是所有数字都是int（or float）,必须要看看，它在什么地方，如果在引号里面，就是字符串了。<br>如果搞不清楚是什么类型，就让 <strong>type()</strong> 来帮忙搞定。</p>
+<p>在print后面，打印的都是字符串。注意，是双引号里面的，引号不是字符串的组成部分。它是在告诉计算机，它里面包裹着的是一个字符串。</p>
+<p>如果我要把下面这句话看做一个字符串，应该怎么做？</p>
+<pre><code class="hljs vbnet">What<span class="hljs-comment">&#x27;s your name?</span></code></pre>
+<p>在这句话中有一个单引号，如果直接在交互模式中像上面那样输入，就会这样：</p>
+<pre><code class="hljs python-repl"><span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python"><span class="hljs-string">&#x27;What&#x27;</span>s your name?<span class="hljs-string">&#x27;</span></span>
+SyntaxError: invalid syntax</code></pre>
+<p>出现了SyntaxError（语法错误）引导的提示，这是在告诉我们这里存在错误，错误的类型就是SyntaxError，后面是对这种错误的解释“invalid syntax”（无效的语法）。<br>特别注意，错误提示错误提示会直接标注出来错误的地方，不用多说，你也能猜测出，大概在告诉我们，可能是那里出现错误了。</p>
+<blockquote>
+<p>在python中，这一点是非常友好的，如果语句存在错误，就会将错误输出来，供程序员改正参考。当然，错误来源有时候比较复杂，需要根据经验和知识进行修改。还有一种修改错误的好办法，就是讲错误提示放到google中搜索。</p>
+</blockquote>
+<p>上面那个值的错误原因是什么呢？仔细观察，发现那句话中事实上有三个单引号，本来一对单引号之间包裹的是一个字符串，现在出现了三个（一对半）单引号，computer姑娘迷茫了，她不知道单引号包裹的到底是谁。于是报错。</p>
+<p><strong>解决方法一：</strong> 双引号包裹单引号</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;What&#x27;s your name?&quot;</span>
+<span class="hljs-string">&quot;What&#x27;s your name?&quot;</span></code></pre>
+<p>用双引号来包裹，双引号里面允许出现单引号。其实，反过来，单引号里面也可以包裹双引号。这个可以笼统地成为二者的嵌套。</p>
+<p><strong>解决方法二：</strong> 使用转义符</p>
+<p>所谓转义，就是让某个符号不在表示某个含义，而是表示另外一个含义。<br>转义符的作用就是它能够转变符号的含义。在python中，用\作为转义符（其实很多语言，只要有转义符的，都是用这个符号）。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&#x27;What\&#x27;s your name?&#x27;</span>
+<span class="hljs-string">&quot;What&#x27;s your name?&quot;</span></code></pre>
+<p>是不是看到转义符\的作用了。</p>
+<p>本来单引号表示包括字符串，它不是字符串一部分，但是如果前面有转义符，那么它就失去了原来的含义，转化为字符串的一部分，相当于一个特殊字符了。</p>
+<h4 id="变量和字符串"><a href="#变量和字符串" class="headerlink" title="变量和字符串"></a>变量和字符串</h4><p>前面讲过变量无类型，对象有类型了，比如在数字中:</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; a
+<span class="hljs-number">5</span></code></pre>
+<p>其本质含义是变量a相当于一个标签，贴在了对象5上面。并且我们把这个语句叫做赋值语句。</p>
+<p>同样，在对字符串类型的对象，也是这样，能够通过赋值语句，将对象与某个标签（变量）关联起来。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; b = <span class="hljs-string">&quot;Hello,World!&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b
+<span class="hljs-string">&#x27;Hello,World!&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(b)
+Hello,World!</code></pre>
+
+<p>还记得我们曾经用过一个type命令吗？现在它还有用，就是检验一个变量，到底跟什么类型联系着，是字符串还是数字？</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b = <span class="hljs-string">&#x27;1&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(a)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">int</span>&#x27;&gt;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(b)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">str</span>&#x27;&gt;</span></code></pre>
+<p>有时候，你会听到一种说法：把a称之为数字型变量，把b叫做字符（串）型变量。这种说法，在某些语言中是成立的。<br>某些语言(如Java)，需要提前声明变量，然后变量就成为了一个筐，将值装到这个筐里面。但是，python不是这样的。要注意区别。</p>
+<h4 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h4><p>对数字，如果拼接，就是对两个数字求和。如：3+5，就计算出为8。那么对字符串都能进行什么样的操作呢？</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;py&quot;</span>+<span class="hljs-string">&quot;thon&quot;</span>
+<span class="hljs-string">&#x27;python&#x27;</span></code></pre>
+
+<p>两个字符串相加，就相当于把两个字符串连接起来。(别的运算就别尝试了，没什么意义，肯定报错，不信就试试）</p>
+<pre><code class="hljs vim">&gt;&gt;&gt; <span class="hljs-string">&quot;py&quot;</span>-<span class="hljs-string">&quot;thon&quot;</span>
+Traceback (most recent <span class="hljs-keyword">call</span> <span class="hljs-keyword">last</span>):
+  File <span class="hljs-string">&quot;&lt;pyshell#132&gt;&quot;</span>, <span class="hljs-built_in">line</span> <span class="hljs-number">1</span>, in <span class="hljs-symbol">&lt;module&gt;</span>
+    <span class="hljs-string">&quot;py&quot;</span>-<span class="hljs-string">&quot;thon&quot;</span>
+TypeError: unsupported operand <span class="hljs-built_in">type</span>(s) <span class="hljs-keyword">for</span> -: <span class="hljs-string">&#x27;str&#x27;</span> <span class="hljs-built_in">and</span> <span class="hljs-string">&#x27;str&#x27;</span></code></pre>
+
+<p>用+号实现连接，的确比较简单，不过，有时候你会遇到这样的问题：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-number">2021</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b = <span class="hljs-string">&quot;free&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; a+b
+Traceback (most recent call last)<span class="hljs-symbol">:</span>
+  File <span class="hljs-string">&quot;&lt;pyshell#137&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-class"><span class="hljs-keyword">module</span>&gt;</span>
+    a+b
+<span class="hljs-symbol">TypeError:</span> unsupported operand type(s) <span class="hljs-keyword">for</span> +: <span class="hljs-string">&#x27;int&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;str&#x27;</span></code></pre>
+<p>报错了，其错误原因已经打印出来了（一定要注意看打印出来的信息）：cannot concatenate ‘str’ and ‘int’ objects。<br>原来a对应的对象是一个int类型的，不能将它和str对象连接起来。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; b + str(a)
+<span class="hljs-string">&#x27;free2021&#x27;</span></code></pre>
+<p>用str(a)实现将整数对象转换为字符串对象。虽然str是一种对象类型，但是它也能够实现对象类型的转换，这就起到了一个函数的作用。</p>
+<p>前面已经讲过的int也有类似的作用。比如：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-string">&quot;123&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(a)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">str</span>&#x27;&gt;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b = int(a)
+<span class="hljs-meta">&gt;&gt;</span>&gt; b
+<span class="hljs-number">123</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(b)
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">int</span>&#x27;&gt;</span></code></pre>
+
+<blockquote>
+<p>提醒列位，如果你对int和str比较好奇，可以在交互模式中，使用help(int)，help(str)查阅相关的更多资料。</p>
+</blockquote>
+<p>还有第三种：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-number">2021</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b = <span class="hljs-string">&quot;free&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b + repr(a)
+<span class="hljs-string">&#x27;free2021&#x27;</span></code></pre>
+<p>这里repr()是一个函数，其实就是反引号的替代品，它能够把结果字符串转化为合法的python表达式。</p>
+<p>三者之间的区别:</p>
+<ul>
+<li>首先明确，repr()和``是一致的。</li>
+<li>接下来需要区别的就是repr()和str，一个最简单的区别，repr是函数，str是跟int一样，一种对象类型。</li>
+</ul>
+<p>不过这么说是不能完全解惑的，网上有不少人对这两者进行区分的内容，我推荐这个：</p>
+<ol>
+<li><p>When should i use str() and when should i use repr() ?</p>
+<blockquote>
+<p>Almost always use str when creating output for end users.<br>repr is mainly useful for debugging and exploring. For example, if you suspect a string has non printing characters in it, or a float has a small rounding error, repr will show you; str may not.<br>repr can also be useful for for generating literals to paste into your source code. It can also be used for persistence (with ast.literal_eval or eval), but this is rarely a good idea–if you want editable persisted values, something like JSON or YAML is much better, and if you don’t plan to edit them, use pickle.<br>译文：</p>
+</blockquote>
+</li>
+<li><p>In which cases i can use either of them ?</p>
+<blockquote>
+<p>Well, you can use them almost anywhere. You shouldn’t generally use them except as described above.</p>
+</blockquote>
+</li>
+<li><p>What can str() do which repr() can’t ?</p>
+<blockquote>
+<p>Give you output fit for end-user consumption–not always (e.g., str([‘spam’, ‘eggs’]) isn’t likely to be anything you want to put in a GUI), but more often than repr.</p>
+</blockquote>
+</li>
+<li><p>What can repr() do which str() can’t</p>
+<blockquote>
+<p>Give you output that’s useful for debugging–again, not always (the default for instances of user-created classes is rarely helpful), but whenever possible.<br>And sometimes give you output that’s a valid Python literal or other expression–but you rarely want to rely on that except for interactive exploration.</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="Python转义字符"><a href="#Python转义字符" class="headerlink" title="Python转义字符"></a>Python转义字符</h4><p>在字符串中，有时需要输入一些特殊的符号，但是，某些符号不能直接输出，就需要用转义符。<br>所谓转义，就是不采用符号本来的含义，而采用另外一含义了。下面表格中列出常用的转义符：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\</td>
+<td>(在行尾时) 续行符</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜杠符号</td>
+</tr>
+<tr>
+<td>‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(Backspace)</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>转义</td>
+</tr>
+<tr>
+<td>\000</td>
+<td>空</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>纵向制表符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\oyy</td>
+<td>八进制数，yy代表的字符，例如：\o12代表换行</td>
+</tr>
+<tr>
+<td>\xyy</td>
+<td>十六进制数，yy代表的字符，例如：\x0a代表换行</td>
+</tr>
+<tr>
+<td>\other</td>
+<td>其它的字符以普通格式输出</td>
+</tr>
+</tbody></table>
+<p>以上所有转义符，都可以通过交互模式下来测试一下，感受实际上是什么样子的。例如：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;Hello, I am Daimon. \</span>
+<span class="hljs-string">My Website is &#x27;https://daimonduan.top&#x27;.&quot;</span>
+<span class="hljs-string">&quot;Hello, I am Daimon. My Website is &#x27;https://daimonduan.top&#x27;.&quot;</span>
+
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;you can connect me by qq\\weibo\\gmail&quot;</span>
+<span class="hljs-string">&#x27;you can connect me by qq\\weibo\\gmail&#x27;</span></code></pre>
+
+<h3 id="六、字符串-2"><a href="#六、字符串-2" class="headerlink" title="六、字符串(2)"></a>六、字符串(2)</h3><p>了解两个函数：raw_input和print</p>
+<blockquote>
+<p>这两个都是python的内建函数（built-in function）。关于python的内建函数，下面这个表格都列出来了。所谓内建函数，就是能够在python中直接调用，不需要做其它的操作。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#abs">官方文档</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qwxwaty/article/details/80384765">CSDN</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left">Built-in Functions</th>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">abs()</td>
+<td align="left">dict()</td>
+<td align="left">help()</td>
+<td align="left">min()</td>
+<td align="left">setattr()</td>
+</tr>
+<tr>
+<td align="left">all()</td>
+<td align="left">dir()</td>
+<td align="left">hex()</td>
+<td align="left">next()</td>
+<td align="left">slice()</td>
+</tr>
+<tr>
+<td align="left">any()</td>
+<td align="left">divmod()</td>
+<td align="left">id()</td>
+<td align="left">object()</td>
+<td align="left">sorted()</td>
+</tr>
+<tr>
+<td align="left">ascii()</td>
+<td align="left">enumerate()</td>
+<td align="left">input()</td>
+<td align="left">oct()</td>
+<td align="left">staticmethod()</td>
+</tr>
+<tr>
+<td align="left">bin()</td>
+<td align="left">eval()</td>
+<td align="left">int()</td>
+<td align="left">open()</td>
+<td align="left">str()</td>
+</tr>
+<tr>
+<td align="left">bool()</td>
+<td align="left">exec()</td>
+<td align="left">isinstance()</td>
+<td align="left">ord()</td>
+<td align="left">sum()</td>
+</tr>
+<tr>
+<td align="left">bytearray()</td>
+<td align="left">filter()</td>
+<td align="left">issubclass()</td>
+<td align="left">pow()</td>
+<td align="left">super()</td>
+</tr>
+<tr>
+<td align="left">bytes()</td>
+<td align="left">float()</td>
+<td align="left">iter()</td>
+<td align="left">print()</td>
+<td align="left">tuple()</td>
+</tr>
+<tr>
+<td align="left">callable()</td>
+<td align="left">format()</td>
+<td align="left">len()</td>
+<td align="left">property()</td>
+<td align="left">type()</td>
+</tr>
+<tr>
+<td align="left">chr()</td>
+<td align="left">frozenset()</td>
+<td align="left">list()</td>
+<td align="left">range()</td>
+<td align="left">vars()</td>
+</tr>
+<tr>
+<td align="left">classmethod()</td>
+<td align="left">getattr()</td>
+<td align="left">locals()</td>
+<td align="left">repr()</td>
+<td align="left">zip()</td>
+</tr>
+<tr>
+<td align="left">compile()</td>
+<td align="left">globals()</td>
+<td align="left">map()</td>
+<td align="left">reversed()</td>
+<td align="left"><strong>import</strong>()</td>
+</tr>
+<tr>
+<td align="left">complex()</td>
+<td align="left">hasattr()</td>
+<td align="left">max()</td>
+<td align="left">round()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">delattr()</td>
+<td align="left">hash()</td>
+<td align="left">memoryview()</td>
+<td align="left">set()</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h3 id="七、字符串-3"><a href="#七、字符串-3" class="headerlink" title="七、字符串(3)"></a>七、字符串(3)</h3><h3 id="八、字符串-4"><a href="#八、字符串-4" class="headerlink" title="八、字符串(4)"></a>八、字符串(4)</h3><h3 id="九、字符串编码"><a href="#九、字符串编码" class="headerlink" title="九、字符串编码"></a>九、字符串编码</h3><h3 id="十、列表-1"><a href="#十、列表-1" class="headerlink" title="十、列表(1)"></a>十、列表(1)</h3><h3 id="十一、列表-2"><a href="#十一、列表-2" class="headerlink" title="十一、列表(2)"></a>十一、列表(2)</h3><h3 id="十二、列表-3"><a href="#十二、列表-3" class="headerlink" title="十二、列表(3)"></a>十二、列表(3)</h3><h3 id="十三、回顾list和str"><a href="#十三、回顾list和str" class="headerlink" title="十三、回顾list和str"></a>十三、回顾list和str</h3><h3 id="十四、元组"><a href="#十四、元组" class="headerlink" title="十四、元组"></a>十四、元组</h3><h3 id="十五、字典-1"><a href="#十五、字典-1" class="headerlink" title="十五、字典(1)"></a>十五、字典(1)</h3><h3 id="十六、字典-2"><a href="#十六、字典-2" class="headerlink" title="十六、字典(2)"></a>十六、字典(2)</h3><h3 id="十七、集合-1"><a href="#十七、集合-1" class="headerlink" title="十七、集合(1)"></a>十七、集合(1)</h3><h3 id="十八、集合-2"><a href="#十八、集合-2" class="headerlink" title="十八、集合(2)"></a>十八、集合(2)</h3>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/LearnPython/">LearnPython</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/LearnPython_week00/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LearnPython_week00：前言</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/09/DateUtil/">
+                        <span class="hidden-mobile">Java中的日期类型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "LearnPython_week01：基本数据类型&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
