@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      10.1k 字
+      15.3k 字
     </span>
   
 
@@ -189,7 +189,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      123
+      186
        分钟
     </span>
   
@@ -1080,7 +1080,654 @@ Traceback (most recent call last)<span class="hljs-symbol">:</span>
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h3 id="七、字符串-3"><a href="#七、字符串-3" class="headerlink" title="七、字符串(3)"></a>七、字符串(3)</h3><h3 id="八、字符串-4"><a href="#八、字符串-4" class="headerlink" title="八、字符串(4)"></a>八、字符串(4)</h3><h3 id="九、字符串编码"><a href="#九、字符串编码" class="headerlink" title="九、字符串编码"></a>九、字符串编码</h3><h3 id="十、列表-1"><a href="#十、列表-1" class="headerlink" title="十、列表(1)"></a>十、列表(1)</h3><h3 id="十一、列表-2"><a href="#十一、列表-2" class="headerlink" title="十一、列表(2)"></a>十一、列表(2)</h3><h3 id="十二、列表-3"><a href="#十二、列表-3" class="headerlink" title="十二、列表(3)"></a>十二、列表(3)</h3><h3 id="十三、回顾list和str"><a href="#十三、回顾list和str" class="headerlink" title="十三、回顾list和str"></a>十三、回顾list和str</h3><h3 id="十四、元组"><a href="#十四、元组" class="headerlink" title="十四、元组"></a>十四、元组</h3><h3 id="十五、字典-1"><a href="#十五、字典-1" class="headerlink" title="十五、字典(1)"></a>十五、字典(1)</h3><h3 id="十六、字典-2"><a href="#十六、字典-2" class="headerlink" title="十六、字典(2)"></a>十六、字典(2)</h3><h3 id="十七、集合-1"><a href="#十七、集合-1" class="headerlink" title="十七、集合(1)"></a>十七、集合(1)</h3><h3 id="十八、集合-2"><a href="#十八、集合-2" class="headerlink" title="十八、集合(2)"></a>十八、集合(2)</h3>
+<p>以下是中文翻译：</p>
+<div class="note note-success">
+            <p>一、数学运算类</p>
+          </div>
+
+<table>
+<thead>
+<tr>
+<th align="left">数学运算类</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">abs(x)</td>
+<td align="left">绝对值函数</td>
+</tr>
+<tr>
+<td align="left">complex([real[, imag]])</td>
+<td align="left">复数函数</td>
+</tr>
+<tr>
+<td align="left">divmod(a, b)</td>
+<td align="left">分别为取商和取余函数</td>
+</tr>
+<tr>
+<td align="left">float([x])</td>
+<td align="left">将一个字符串或数转换为浮点数。</td>
+</tr>
+<tr>
+<td align="left">int([x[, base]])</td>
+<td align="left">将一个字符转换为整数型类型，base表示进制</td>
+</tr>
+<tr>
+<td align="left">pow(x, y[, z])</td>
+<td align="left">幂函数，返回x的y次幂</td>
+</tr>
+<tr>
+<td align="left">range([start], stop[, step])</td>
+<td align="left">产生一个序列，默认从0开始</td>
+</tr>
+<tr>
+<td align="left">round(x[, n])</td>
+<td align="left">四舍五入</td>
+</tr>
+<tr>
+<td align="left">sum(iterable[, start])</td>
+<td align="left">对集合求和</td>
+</tr>
+<tr>
+<td align="left">oct(x)</td>
+<td align="left">将一个数字转化为8进制</td>
+</tr>
+<tr>
+<td align="left">hex(x)</td>
+<td align="left">将整数x转换为16进制字符串</td>
+</tr>
+<tr>
+<td align="left">chr(x)</td>
+<td align="left">返回整数x对应的ASCII字符</td>
+</tr>
+<tr>
+<td align="left">bin(x)</td>
+<td align="left">将整数x转换为二进制字符串</td>
+</tr>
+<tr>
+<td align="left">bool([x])</td>
+<td align="left">返回一个布尔值</td>
+</tr>
+</tbody></table>
+<div class="note note-success">
+            <p>二、集合类</p>
+          </div>
+<table>
+<thead>
+<tr>
+<th align="left">集合类</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">format(value [, format_spec])</td>
+<td align="left">格式化输出字符串，格式化的参数顺序从0开始</td>
+</tr>
+<tr>
+<td align="left">enumerate(sequence , start = 0)</td>
+<td align="left">返回可枚举对象,该对象的next()方法将返回一个元组</td>
+</tr>
+<tr>
+<td align="left">iter(o[, sentinel])</td>
+<td align="left">生成一个对象的迭代器，第二个参数表示分隔符</td>
+</tr>
+<tr>
+<td align="left">man(iterable, *[, key, default])</td>
+<td align="left">返回集合中的最大值</td>
+</tr>
+<tr>
+<td align="left">man(arg1, arg2, *args[, key])</td>
+<td align="left">返回集合中的最大值</td>
+</tr>
+<tr>
+<td align="left">min(iterable, *[, key, default])</td>
+<td align="left">返回集合中的最小值</td>
+</tr>
+<tr>
+<td align="left">min(arg1, arg2, *args[, key])</td>
+<td align="left">返回集合中的最小值</td>
+</tr>
+<tr>
+<td align="left">dict([arg])</td>
+<td align="left">创建一个数据字典</td>
+</tr>
+<tr>
+<td align="left">list([iterable])</td>
+<td align="left">创建一个列表，元素可修改</td>
+</tr>
+<tr>
+<td align="left">set()</td>
+<td align="left">创建一个集合</td>
+</tr>
+<tr>
+<td align="left">frozenset([iterable])</td>
+<td align="left">创建一个不可变的集合</td>
+</tr>
+<tr>
+<td align="left">str([object])</td>
+<td align="left">创建一个字符串</td>
+</tr>
+<tr>
+<td align="left">sorted(iterable[, cmp[, key[, reverse]]])</td>
+<td align="left">从可迭代项返回一个新的排序列表</td>
+</tr>
+<tr>
+<td align="left">tuple([iterable])</td>
+<td align="left">创建一个元组</td>
+</tr>
+</tbody></table>
+<div class="note note-success">
+            <p>三、逻辑判断</p>
+          </div>
+<table>
+<thead>
+<tr>
+<th align="left">逻辑判断</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">all(iterable)</td>
+<td align="left">如果可迭代的所有元素都是true(或者如果迭代是空的),则返回1</td>
+</tr>
+<tr>
+<td align="left">cmp(x, y)</td>
+<td align="left">如果x &lt; y ,返回负数；x == y, 返回0；x &gt; y,返回正数</td>
+</tr>
+</tbody></table>
+<div class="note note-success">
+            <p>四、反射</p>
+          </div>
+<table>
+<thead>
+<tr>
+<th align="left">反射</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">callable(object)</td>
+<td align="left">如果对象参数看起来是可调用的,则返回True,如果不是,则返回false。如果返回true,则仍然有可能调用失败。</td>
+</tr>
+<tr>
+<td align="left">compile(source, filename, mode[, flags[, dont_inherit]])</td>
+<td align="left">将源代码编译为代码或AST对象，代码对象可以由exec()或val()执行。</td>
+</tr>
+<tr>
+<td align="left">dir([object])</td>
+<td align="left">如果没有参数,则返回当前本地范围中的名称列表。使用参数,尝试返回该对象的有效属性列表。</td>
+</tr>
+<tr>
+<td align="left">delattr(object, name)</td>
+<td align="left">删除object对象名为name的属性</td>
+</tr>
+<tr>
+<td align="left">eval(expression [, globals [, locals]])</td>
+<td align="left">计算表达式expression的值</td>
+</tr>
+<tr>
+<td align="left">execfile(filename [, globals [, locals]])</td>
+<td align="left">用法类似exec()，不同的是execfile的参数filename为文件名，而exec的参数为字符串。</td>
+</tr>
+<tr>
+<td align="left">filter(function, iterable)</td>
+<td align="left">从函数返回的可迭代元素构造迭代器。迭代可以是序列、支持迭代的容器，也可以是迭代器。如果函数为None，则假定为恒等函数，即删除所有可迭代的False元素。</td>
+</tr>
+<tr>
+<td align="left">getattr(object, name [, defalut])</td>
+<td align="left">获取一个类的属性</td>
+</tr>
+<tr>
+<td align="left">globals()</td>
+<td align="left">返回一个描述当前全局符号表的字典</td>
+</tr>
+<tr>
+<td align="left">hasattr(object, name)</td>
+<td align="left">判断对象object是否包含名为name的特性</td>
+</tr>
+<tr>
+<td align="left">hash(object)</td>
+<td align="left">如果对象object为哈希表类型，返回对象object的哈希值</td>
+</tr>
+<tr>
+<td align="left">id(object)</td>
+<td align="left">返回对象的唯一标识</td>
+</tr>
+<tr>
+<td align="left">isinstance(object, classinfo)</td>
+<td align="left">判断object是否是class的实例</td>
+</tr>
+<tr>
+<td align="left">issubclass(class, classinfo)</td>
+<td align="left">判断是否是子类</td>
+</tr>
+<tr>
+<td align="left">len(s)</td>
+<td align="left">返回集合长度</td>
+</tr>
+<tr>
+<td align="left">locals()</td>
+<td align="left">返回当前的变量列表</td>
+</tr>
+<tr>
+<td align="left">map(function, iterable, …)</td>
+<td align="left">遍历每个元素，执行function操作</td>
+</tr>
+<tr>
+<td align="left">memoryview(obj)</td>
+<td align="left">返回一个内存镜像类型的对象</td>
+</tr>
+<tr>
+<td align="left">next(iterator[, default])</td>
+<td align="left">类似于iterator.next()</td>
+</tr>
+<tr>
+<td align="left">object()</td>
+<td align="left">基类</td>
+</tr>
+<tr>
+<td align="left">property([fget[, fset[, fdel[, doc]]]])</td>
+<td align="left">属性访问的包装类，设置后可以通过c.x=value等来访问setter和getter</td>
+</tr>
+<tr>
+<td align="left">reduce(function, iterable[, initializer])</td>
+<td align="left">合并操作，从第一个开始是前两个参数，然后是前两个的结果与第三个合并进行处理，以此类推</td>
+</tr>
+<tr>
+<td align="left">reload(module)</td>
+<td align="left">重新加载模块</td>
+</tr>
+<tr>
+<td align="left">setattr(object, name, value)</td>
+<td align="left">设置属性值</td>
+</tr>
+<tr>
+<td align="left">repr(object)</td>
+<td align="left">将一个对象变幻为可打印的格式</td>
+</tr>
+<tr>
+<td align="left">slice()</td>
+<td align="left">返回表示由范围（start，stop，step）指定的一组索引的切片对象。</td>
+</tr>
+<tr>
+<td align="left">staticmethod</td>
+<td align="left">声明静态方法，是个注解</td>
+</tr>
+<tr>
+<td align="left">super(type[, object-or-type])</td>
+<td align="left">引用父类</td>
+</tr>
+<tr>
+<td align="left">type(object)</td>
+<td align="left">返回该object的类型</td>
+</tr>
+<tr>
+<td align="left">vars([object])</td>
+<td align="left">返回对象的变量，若无参数与dict()方法类似</td>
+</tr>
+<tr>
+<td align="left">bytearray([source [, encoding [, errors]]])</td>
+<td align="left">返回一个byte数组: 1、如果source为整数，则返回一个长度为source的初始化数组；2、如果source为字符串，则按照指定的encoding将字符串转换为字节序列；3、如果source为可迭代类型，则元素必须为[0 ,255]中的整数；4、如果source为与buffer接口一致的对象，则此对象也可以被用于初始化bytearray.</td>
+</tr>
+<tr>
+<td align="left">zip([iterable, …])</td>
+<td align="left">用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</td>
+</tr>
+</tbody></table>
+<div class="note note-success">
+            <p>五、IO操作</p>
+          </div>
+<table>
+<thead>
+<tr>
+<th align="left">IO操作</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">file(filename [, mode [, bufsize]])</td>
+<td align="left">file类型的构造函数，作用为打开一个文件，如果文件不存在且mode为写或追加时，文件将被创建。添加‘b’到mode参数中，将对文件以二进制形式操作。添加‘+’到mode参数中，将允许对文件同时进行读写操作1、参数filename：文件名称。2、参数mode：’r’（读）、’w’（写）、’a’（追加）。3、参数bufsize：如果为0表示不进行缓冲，如果为1表示进行行缓冲，如果是一个大于1的数表示缓冲区的大小 。</td>
+</tr>
+<tr>
+<td align="left">open(name[, mode[, buffering]])</td>
+<td align="left">打开文件</td>
+</tr>
+<tr>
+<td align="left">Print()</td>
+<td align="left">打印函数</td>
+</tr>
+<tr>
+<td align="left">raw_input([prompt])</td>
+<td align="left">设置输入，输入都是作为字符串处理</td>
+</tr>
+</tbody></table>
+<p>这些内建函数，怎么才能知道哪个函数怎么用，是干什么用的呢？<br>这里进行演示，这种方法是学习python的法宝:</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; help(raw_input)</code></pre>
+<p>然后就出现：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">Help</span> <span class="hljs-keyword">on</span> built-<span class="hljs-keyword">in</span> <span class="hljs-keyword">function</span> raw_input <span class="hljs-keyword">in</span> <span class="hljs-keyword">module</span> __builtin__:
+
+raw_input(...)
+    raw_input([<span class="hljs-keyword">prompt</span>]) -&gt; <span class="hljs-keyword">string</span>
+
+    <span class="hljs-keyword">Read</span> a <span class="hljs-keyword">string</span> <span class="hljs-keyword">from</span> standard input.  The trailing <span class="hljs-keyword">newline</span> <span class="hljs-keyword">is</span> stripped.
+    <span class="hljs-keyword">If</span> the <span class="hljs-keyword">user</span> hits EOF (Unix: Ctl-D, Windows: Ctl-Z+<span class="hljs-keyword">Return</span>), <span class="hljs-keyword">raise</span> EOFError.
+    <span class="hljs-keyword">On</span> Unix, GNU readline <span class="hljs-keyword">is</span> used <span class="hljs-keyword">if</span> enabled.  The <span class="hljs-keyword">prompt</span> <span class="hljs-keyword">string</span>, <span class="hljs-keyword">if</span> given,
+    <span class="hljs-keyword">is</span> printed <span class="hljs-keyword">without</span> a trailing <span class="hljs-keyword">newline</span> <span class="hljs-keyword">before</span> reading.</code></pre>
+<div class="note note-danger">
+            <p>input()与raw_input()的区别只存在Python2.X环境下,因为在Python3中将Python2中的input()删除了,同时将raw_input()改名为input()。<br>如果你主要使用Py3，那么你只需关注在使用input()时所输入的数据最后都会输出成字符串格式，所以当你进行数字格式输入时要利用int()做好格式转换。</p>
+          </div>
+
+<h3 id="七、字符串-3"><a href="#七、字符串-3" class="headerlink" title="七、字符串(3)"></a>七、字符串(3)</h3><p>关于字符串的内容，已经有两节进行介绍了。不过，它是一个话题中心，还要再继续。</p>
+<p>例如这样一个字符串python，还记得前面对字符串的定义吗？它就是几个字符：p,y,t,h,o,n，排列起来。这种排列是非常严格的，不仅仅是字符本身，而且还有顺序，换言之，如果某个字符换了，就编程一个新字符串了；如果这些字符顺序发生变化了，也成为了一个新字符串。</p>
+<p>在python中，把像字符串这样的对象类型（后面还会冒出来类似的其它有这种特点的对象类型，比如列表），统称为序列。顾名思义，序列就是“有序排列”。</p>
+<p>比如水泊梁山的108个好汉，就是一个“有序排列”的序列。从老大宋江一直排到第108位金毛犬段景住。在这个序列中，每个人有编号，编号和每个人一一对应。1号是宋江，2号是卢俊义。反过来，通过每个人的姓名，也能找出他对应的编号。武松是多少号？14号。李逵呢？22号。</p>
+<p>在python中，给这些编号取了一个文雅的名字，叫做索引(别的编程语言也这么称呼，不是python独有的。)。</p>
+<h4 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h4><p>前面用梁山好汉的为例说明了索引。再看python中的例子：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; lang = <span class="hljs-string">&quot;study python&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; lang[<span class="hljs-number">0</span>]
+<span class="hljs-string">&#x27;s&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; lang[<span class="hljs-number">1</span>]
+<span class="hljs-string">&#x27;t&#x27;</span></code></pre>
+
+<p>有一个字符串，通过赋值语句赋给了变量lang。如果要得到这个字符串的第一个单词s，可以用lang[0]。<br>当然，如果你不愿意通过赋值语句，让变量lang来指向那个字符串，也可以这样做：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;study python&quot;</span>[<span class="hljs-number">0</span>]
+<span class="hljs-string">&#x27;s&#x27;</span></code></pre>
+<p>效果是一样的。因为lang是标签，就指向了”study python”字符串。<br>当让python执行lang[0]的时候，就是要转到那个字符串对象，如同上面的操作一样。只不过，如果不用lang这么一个变量，后面如果再写，就费笔墨了，要每次都把那个字符串写全了。为了省事，还是复制给一个变量吧。变量就是字符串的代表了。</p>
+<p>字符串这个序列的排序方法跟梁山好汉有点不同，第一个不是用数字1表示，而是用数字0表示。不仅仅python，其它很多语言都是从0开始排序的。<br>为什么这样做呢？这就是规定。当然，这个规定是有一定优势的。此处不展开，有兴趣的网上去搜索一下，有专门对此进行解释的文章。</p>
+<table>
+<thead>
+<tr>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+<th align="center">11</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">s</td>
+<td align="center">t</td>
+<td align="center">u</td>
+<td align="center">d</td>
+<td align="center">y</td>
+<td align="center"></td>
+<td align="center">p</td>
+<td align="center">y</td>
+<td align="center">t</td>
+<td align="center">h</td>
+<td align="center">o</td>
+<td align="center">n</td>
+</tr>
+</tbody></table>
+<p>上面的表格中，将这个字符串从第一个到最后一个进行了排序，特别注意，两个单词中间的那个空格，也占用了一个位置。</p>
+<p>通过索引能够找到该索引所对应的字符，那么反过来，能不能通过字符，找到其在字符串中的索引值呢？怎么找？</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; lang.index(<span class="hljs-string">&quot;p&quot;</span>)
+<span class="hljs-number">6</span></code></pre>
+<p>就这样，是不是已经能够和梁山好汉的例子对上号了？只不过区别在于第一个的索引值是0。</p>
+<p>那怎么获取指定索引区间的值呢？</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; lang
+<span class="hljs-string">&#x27;study python&#x27;</span>	<span class="hljs-comment">#在前面“切”了若干的字符之后，再看一下该字符串，还是完整的。</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; lang[<span class="hljs-number">2</span><span class="hljs-symbol">:</span><span class="hljs-number">9</span>]
+<span class="hljs-string">&#x27;udy pyt&#x27;</span></code></pre>
+
+<p>通过lang[2:9]要得到部分（不是一个）字符，从返回的结果中可以看出，我们得到的是序号分别对应着2,3,4,5,6,7,8(跟上面的表格对应一下)字符（包括那个空格）。<br>也就是，这种获得部分字符的方法中，能够得到开始需要的以及最后一个序号之前的所对应的字符。对照上面的表格数一数就知道了。简单说就是包括开头，不包括结尾。</p>
+<p>上述，不管是得到一个还是多个，通过索引得到字符的过程，称之为 <strong>切片</strong> 。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; lang
+<span class="hljs-string">&#x27;study python&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b = lang[<span class="hljs-number">1</span><span class="hljs-symbol">:</span>]    <span class="hljs-comment">#得到从1号到最末尾的字符，这时最后那个需要不用写</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; b
+<span class="hljs-string">&#x27;tudy python&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; c = lang[<span class="hljs-symbol">:</span>]    <span class="hljs-comment">#得到所有字符</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; c
+<span class="hljs-string">&#x27;study python&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; d = lang[<span class="hljs-symbol">:</span><span class="hljs-number">10</span>]    <span class="hljs-comment">#得到从第一个到10号之前的字符</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; d
+<span class="hljs-string">&#x27;study pyth&#x27;</span></code></pre>
+
+<p>在获取切片的时候，如果分号的前面或者后面的序号不写，就表示是到最末（后面的不写）或第一个（前面的不写）</p>
+<p>lang[:10]的效果和lang[0:10]是一样的。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; e = lang[<span class="hljs-number">0</span><span class="hljs-symbol">:</span><span class="hljs-number">10</span>]
+<span class="hljs-meta">&gt;&gt;</span>&gt; e
+<span class="hljs-string">&#x27;study pyth&#x27;</span></code></pre>
+
+<p>如果分号后面有数字，所得到的切片，不包含该数字所对应的序号（前包括，后不包括）。<br>那么，是不是可以这样呢？lang[1:12]，不包括12号（事实没有12号），是不是可以得到1到11号对应的字符呢？</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; lang[<span class="hljs-number">1</span><span class="hljs-symbol">:</span><span class="hljs-number">12</span>]
+<span class="hljs-string">&#x27;tudy python&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; lang[<span class="hljs-number">1</span><span class="hljs-symbol">:</span><span class="hljs-number">13</span>]
+<span class="hljs-string">&#x27;tudy python&#x27;</span></code></pre>
+
+<p>果然是。并且不仅仅后面写12，写13，也能得到同样的结果。但是，我这个特别要提醒，这种获得切片的做法在编程实践中是不提倡的。特别是如果后面要用到循环的时候，这样做或许在什么时候遇到麻烦。</p>
+<p>如果在切片的时候，冒号左右都不写数字，就是前面所操作的c = lang[:]，其结果是变量c的值与原字符串一样，也就是“复制”了一份。注意，这里的“复制”我打上了引号，意思是如同复制，是不是真的复制呢？可以用下面的方式检验一下</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; c
+<span class="hljs-string">&#x27;study python&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; id(c)
+<span class="hljs-number">45559144</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; id(lang)
+<span class="hljs-number">45559144</span></code></pre>
+
+<p>id()的作用就是查看该对象在内存地址（就是在内存中的位置编号）。<br>从上面可以看出，两个的内存地址一样，说明c和lang两个变量指向的是同一个对象。<br>用c=lang[:]的方式，并没有生成一个新的字符串，而是将变量c这个标签也贴在了原来那个字符串上了。</p>
+<h4 id="字符串基本操作"><a href="#字符串基本操作" class="headerlink" title="字符串基本操作"></a>字符串基本操作</h4><p>字符串是一种序列，所有序列都有如下基本操作：</p>
+<ol>
+<li>len()：求序列长度</li>
+<li>连接2个序列</li>
+<li>重复序列元素</li>
+<li>in :判断元素是否存在于序列中</li>
+<li>max() :返回最大值</li>
+<li>min() :返回最小值</li>
+<li>cmp(str1,str2) :比较2个序列值是否相同</li>
+</ol>
+<p>通过下面的例子，将这几个基本操作在字符串上的使用演示一下：</p>
+<div class="note note-success">
+            <p>“+”连接字符串</p>
+          </div>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; str1 = <span class="hljs-string">&quot;abcd&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; str1
+<span class="hljs-string">&#x27;abcd&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; str2 = <span class="hljs-string">&quot;abcde&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; str2
+<span class="hljs-string">&#x27;abcde&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; str1 + str2
+<span class="hljs-string">&#x27;abcdabcde&#x27;</span></code></pre>
+<p>这其实就是拼接，不过在这里，应该有一个更大的观念，我们现在只是学了字符串这一种序列，后面还会遇到列表、元组两种序列，都能够如此实现拼接。</p>
+<div class="note note-success">
+            <p>in</p>
+          </div>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;a&quot;</span> in str1
+True
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;de&quot;</span> in str1
+False
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;de&quot;</span> in str2
+True</code></pre>
+<p>in用来判断某个字符串是不是在另外一个字符串内，或者说判断某个字符串内是否包含某个字符串，如果包含，就返回True，否则返回False。</p>
+<div class="note note-success">
+            <p>最值</p>
+          </div>
+<pre><code class="hljs isbl">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">max</span></span>(<span class="hljs-variable">str1</span>)</span>
+<span class="hljs-string">&#x27;d&#x27;</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">max</span></span>(<span class="hljs-variable">str2</span>)</span>
+<span class="hljs-string">&#x27;e&#x27;</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">min</span></span>(<span class="hljs-variable">str1</span>)</span>
+<span class="hljs-string">&#x27;a&#x27;</span></code></pre>
+<p>一个字符串中，每个字符在计算机内都是有编码的，也就是对应着一个数字，min()和max()就是根据这个数字里获得最小值和最大值，然后对应出相应的字符。<br>关于这种编号是多少，可以网上搜索(google)有关字符编码，或者ASCII编码什么的，很容易查到。</p>
+<div class="note note-success">
+            <p>比较</p>
+          </div>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; cmp(str1, str2)
+-<span class="hljs-number">1</span></code></pre>
+<p>将两个字符串进行比较，也是首先将字符串中的符号转化为对一个的数字，然后比较。如果返回的数值小于零，说明第一个小于第二个，等于0，则两个相等，大于0，第一个大于第二个。</p>
+<p>为了能够明白其所以然，进入下面的分析：</p>
+<pre><code class="hljs isbl">&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">ord</span></span>(<span class="hljs-string">&quot;a&quot;</span>)</span>
+<span class="hljs-number">97</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">ord</span></span>(<span class="hljs-string">&quot;b&quot;</span>)</span>
+<span class="hljs-number">98</span>
+&gt;&gt;&gt; <span class="hljs-function"><span class="hljs-title"><span class="hljs-built_in">ord</span></span>(<span class="hljs-string">&quot; &quot;</span>)</span>
+<span class="hljs-number">32</span></code></pre>
+
+<p>ord()是一个内建函数，能够返回某个字符（注意，是一个字符，不是多个字符组成的串）所对一个的ASCII值（是十进制的），字符a在ASCII中的值是97，空格在ASCII中也有值，是32。<br>顺便说明，反过来，根据整数值得到相应字符，可以使用chr()：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; chr(<span class="hljs-number">97</span>)
+<span class="hljs-string">&#x27;a&#x27;</span></code></pre>
+
+<p>于是，就得到如下比较结果了：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; cmp(<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>)    <span class="hljs-comment">#a--&gt;97, b--&gt;98, 97小于98，所以a小于b</span>
+-<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; cmp(<span class="hljs-string">&quot;abc&quot;</span>,<span class="hljs-string">&quot;aaa&quot;</span>) 
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; cmp(<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>)
+<span class="hljs-number">0</span></code></pre>
+<p>看看下面的比较，是怎么进行的呢？</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; cmp(<span class="hljs-string">&quot;ad&quot;</span>,<span class="hljs-string">&quot;c&quot;</span>)
+-<span class="hljs-number">1</span></code></pre>
+
+<p>在字符串的比较中，是两个字符串的第一个字符先比较，如果相等，就比较下一个，如果不相等，就返回结果。<br>直到最后，如果还相等，就返回0。位数不够时，按照没有处理（注意，没有不是0，0在ASCII中对应的是NUL），位数多的那个天然大了。<br>ad中的a先和后面的c进行比较，显然a小于c，于是就返回结果-1。</p>
+<p>如进行下面的比较，是最容易让人迷茫的。需要根据刚才阐述来理解：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; cmp(<span class="hljs-string">&quot;123&quot;</span>,<span class="hljs-string">&quot;23&quot;</span>)
+-<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; cmp(<span class="hljs-number">123</span>,<span class="hljs-number">23</span>)    <span class="hljs-comment">#也可以比较整数，这时候就是整数的直接比较了。</span>
+<span class="hljs-number">1</span></code></pre>
+
+<p><strong>注意：</strong>python3中删除了内建函数cmp：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; cmp(str1,str2)
+Traceback (most recent call last)<span class="hljs-symbol">:</span>
+  File <span class="hljs-string">&quot;&lt;pyshell#216&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;<span class="hljs-class"><span class="hljs-keyword">module</span>&gt;</span>
+    cmp(str1,str2)
+<span class="hljs-symbol">NameError:</span> name <span class="hljs-string">&#x27;cmp&#x27;</span> is <span class="hljs-keyword">not</span> <span class="hljs-keyword">defined</span></code></pre>
+<p>需要引入模块：</p>
+<pre><code class="hljs python-repl"><span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python"><span class="hljs-keyword">import</span> operator</span>
+<span class="hljs-meta">&gt;&gt;&gt;</span> <span class="python">operator.lt(str1,str2)</span>
+True</code></pre>
+<p>此外，operator 模块封装了很多操作相关的函数, 比如 加,减 乘除 ,比较运算 ,逻辑运算 ,矩阵相乘<br>具体可以参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010339879/article/details/98304292">python3中 operator模块用法介绍</a></p>
+<div class="note note-success">
+            <p>“*”</p>
+          </div>
+<p>字符串中的“乘法”，这个乘法，就是重复那个字符串的含义。在某些时候很好用的。比如我要打印一个华丽的分割线：</p>
+<pre><code class="hljs asciidoc">&gt;&gt;&gt; str1 * 3
+<span class="hljs-emphasis">&#x27;abcdabcdabcd&#x27;</span>
+&gt;&gt;&gt; print(&quot;-&quot;<span class="hljs-strong">*20)</span>
+<span class="hljs-strong">--------------------</span></code></pre>
+
+<div class="note note-success">
+            <p>len()</p>
+          </div>
+<p>要知道一个字符串有多少个字符，一种方法是从头开始，盯着屏幕数一数。哦，这不是计算机在干活，是键客在干活。<br>键客这样来数字符串长度：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-string">&quot;hello&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; len(a)
+<span class="hljs-number">5</span></code></pre>
+<p>使用的是一个函数len(object)。得到的结果就是该字符串长度。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; m = len(a)  <span class="hljs-comment">#把结果返回后赋值给一个变量</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; m
+<span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; type(m)     <span class="hljs-comment">#这个返回值（变量）是一个整数型</span>
+&lt;<span class="hljs-class"><span class="hljs-keyword">class</span> &#x27;<span class="hljs-title">int</span>&#x27;&gt;</span></code></pre>
+
+<h3 id="八、字符串-4"><a href="#八、字符串-4" class="headerlink" title="八、字符串(4)"></a>八、字符串(4)</h3><p>字符串的内容的确不少，甚至都有点啰嗦了。但是，本节依然还要继续，就是因为在编程实践中，经常会遇到有关字符串的问题，而且也是很多初学者容易迷茫的</p>
+<h4 id="字符串格式化输出"><a href="#字符串格式化输出" class="headerlink" title="字符串格式化输出"></a>字符串格式化输出</h4><p>什么是格式化？在维基百科中有专门的词条，这么说的：</p>
+<blockquote>
+<p>格式化是指对磁盘或磁盘中的分区（partition）进行初始化的一种操作，这种操作通常会导致现有的磁盘或分区中所有的文件被清除。</p>
+</blockquote>
+<p>不知道你是否知道这种“格式化”。显然，此格式化非我们这里所说的，我们说的是字符串的格式化，或者说成“格式化字符串”，都可以，表示的意思就是：</p>
+<blockquote>
+<p>格式化字符串，是C、C++等程序设计语言printf类函数中用于指定输出参数的格式与相对位置的字符串参数。其中的转换说明（conversion specification）用于把随后对应的0个或多个函数参数转换为相应的格式输出；格式化字符串中转换说明以外的其它字符原样输出。</p>
+</blockquote>
+<p>这也是来自维基百科的定义。在这个定义中，是用C语言作为例子，并且用了其输出函数来说明。在python中，也有同样的操作和类似的函数print，此前我们已经了解一二了。</p>
+<p>如果将那个定义说的通俗一些，字符串格式化化，就是要先制定一个模板，在这个模板中某个或者某几个地方留出空位来，然后在那些空位填上字符串。那么，那些空位，需要用一个符号来表示，这个符号通常被叫做占位符（仅仅是占据着那个位置，并不是输出的内容）。</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;I like %s&quot;</span>
+<span class="hljs-string">&#x27;I like %s&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;I like %s&quot;</span> % <span class="hljs-string">&quot;python&quot;</span>
+<span class="hljs-string">&#x27;I like python&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; <span class="hljs-string">&quot;I like %s&quot;</span> % <span class="hljs-string">&quot;Java&quot;</span>
+<span class="hljs-string">&#x27;I like Java&#x27;</span></code></pre>
+<p>这是较为常用的一种字符串输出方式。</p>
+<p>另外，不同的占位符，会表示那个位置应该被不同类型的对象填充。下面列出许多，供参考。不过，不用记忆，常用的只有%s和%d，或者再加上%f，其它的如果需要了，到这里来查即可。</p>
+<table>
+<thead>
+<tr>
+<th align="left">占位符</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">%s</td>
+<td align="left">字符串(采用str()的显示)</td>
+</tr>
+<tr>
+<td align="left">%r</td>
+<td align="left">字符串(采用repr()的显示)</td>
+</tr>
+<tr>
+<td align="left">%c</td>
+<td align="left">单个字符</td>
+</tr>
+<tr>
+<td align="left">%b</td>
+<td align="left">二进制整数</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">十进制整数</td>
+</tr>
+<tr>
+<td align="left">%i</td>
+<td align="left">十进制整数</td>
+</tr>
+<tr>
+<td align="left">%o</td>
+<td align="left">八进制整数</td>
+</tr>
+<tr>
+<td align="left">%x</td>
+<td align="left">十六进制整数</td>
+</tr>
+<tr>
+<td align="left">%e</td>
+<td align="left">指数 (基底写为e)</td>
+</tr>
+<tr>
+<td align="left">%E</td>
+<td align="left">指数 (基底写为E)</td>
+</tr>
+<tr>
+<td align="left">%f</td>
+<td align="left">浮点数</td>
+</tr>
+<tr>
+<td align="left">%F</td>
+<td align="left">浮点数，与上相同</td>
+</tr>
+<tr>
+<td align="left">%g</td>
+<td align="left">指数(e)或浮点数 (根据显示长度)</td>
+</tr>
+<tr>
+<td align="left">%G</td>
+<td align="left">指数(E)或浮点数 (根据显示长度)</td>
+</tr>
+</tbody></table>
+<p>看例子：</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-string">&quot;%d years&quot;</span> % <span class="hljs-number">15</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; a
+<span class="hljs-string">&#x27;15 years&#x27;</span></code></pre>
+
+<p>当然，还可以在一个字符串中设置多个占位符，就像下面一样</p>
+<pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; a = <span class="hljs-string">&quot;China&quot;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; a
+<span class="hljs-string">&#x27;China&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; name = a[<span class="hljs-symbol">:</span>]
+<span class="hljs-meta">&gt;&gt;</span>&gt; name
+<span class="hljs-string">&#x27;China&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; age = <span class="hljs-number">5000</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; age
+<span class="hljs-number">5000</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; print(<span class="hljs-string">&quot;%s has a history of over %d years. I love %s&quot;</span> % (name, age, name))
+China has a history of over <span class="hljs-number">5000</span> years. I love China</code></pre>
+
+<h3 id="九、字符串编码"><a href="#九、字符串编码" class="headerlink" title="九、字符串编码"></a>九、字符串编码</h3><h3 id="十、列表-1"><a href="#十、列表-1" class="headerlink" title="十、列表(1)"></a>十、列表(1)</h3><h3 id="十一、列表-2"><a href="#十一、列表-2" class="headerlink" title="十一、列表(2)"></a>十一、列表(2)</h3><h3 id="十二、列表-3"><a href="#十二、列表-3" class="headerlink" title="十二、列表(3)"></a>十二、列表(3)</h3><h3 id="十三、回顾list和str"><a href="#十三、回顾list和str" class="headerlink" title="十三、回顾list和str"></a>十三、回顾list和str</h3><h3 id="十四、元组"><a href="#十四、元组" class="headerlink" title="十四、元组"></a>十四、元组</h3><h3 id="十五、字典-1"><a href="#十五、字典-1" class="headerlink" title="十五、字典(1)"></a>十五、字典(1)</h3><h3 id="十六、字典-2"><a href="#十六、字典-2" class="headerlink" title="十六、字典(2)"></a>十六、字典(2)</h3><h3 id="十七、集合-1"><a href="#十七、集合-1" class="headerlink" title="十七、集合(1)"></a>十七、集合(1)</h3><h3 id="十八、集合-2"><a href="#十八、集合-2" class="headerlink" title="十八、集合(2)"></a>十八、集合(2)</h3>
             </div>
             <hr>
             <div>
